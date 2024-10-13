@@ -368,6 +368,10 @@ document.write(`
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>xarray<span class="w"> </span>numpy
 </pre></div>
 </div>
+<p>You can also install the package from PyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
+</pre></div>
+</div>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
@@ -394,7 +398,21 @@ document.write(`
 <li><p><strong>Parallel Data Extraction</strong></p>
 <p>For faster processing of data over multiple time steps, use <code class="docutils literal notranslate"><span class="pre">get_var_parallel</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time_steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">get_var_parallel</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time_steps</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">domain_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># (k1, k2, j1, j2, i1, i2)</span>
+<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">get_var_parallel</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time_steps</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">domain_range</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p><strong>Parallelize Function in Time</strong></p>
+<p>For faster processing of data over multiple time steps, use <code class="docutils literal notranslate"><span class="pre">get_var_parallel</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_define_function</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="c1"># some complex analysis</span>
+    <span class="k">return</span> <span class="c1"># some results</span>
+
+<span class="n">time_steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">func_time_parallel</span><span class="p">(</span><span class="n">user_define_function</span><span class="p">,</span> <span class="n">time_steps</span><span class="o">=</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>

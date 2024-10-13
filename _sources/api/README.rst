@@ -32,8 +32,17 @@ Clone this repository and install the required dependencies:
 
     pip install xarray numpy
 
+
+
+You can also install the package from PyPI:
+
+.. code-block:: bash
+
+    pip install git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
+
+
 Usage
------
+------
 
 Initialization
 --------------
@@ -65,7 +74,22 @@ Example Operations
    .. code-block:: python
 
        time_steps = range(0, 10)
-       var_data_parallel = vvm_tools.get_var_parallel("temperature", time_steps, cores=4)
+       domain_range = (0, 10, None, None, 10, 20) # (k1, k2, j1, j2, i1, i2)
+       var_data_parallel = vvm_tools.get_var_parallel("temperature", time_steps, domain_range=domain_range, cores=4)
+
+2. **Parallelize Function in Time**
+
+   For faster processing of data over multiple time steps, use ``get_var_parallel``:
+
+   .. code-block:: python
+
+       def user_define_function(t):
+           # some complex analysis
+           return # some results
+
+       time_steps = range(0, 10)
+       var_data_parallel = vvm_tools.func_time_parallel(user_define_function, time_steps=time_steps, cores=4)
+
 
 
 Debugging
