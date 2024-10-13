@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: vvmtools
+Version: 0.1.0
+Summary: A collection of tools for VVM simulation data loading and analysis.
+Author: Aaron Hsieh
+Author-email: R12229025@ntu.edu.tw
+Requires-Dist: numpy
+Requires-Dist: xarray
+Requires-Dist: netCDF4
+Requires-Dist: matplotlib
