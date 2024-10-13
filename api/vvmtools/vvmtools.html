@@ -43,7 +43,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/vvmtools/vvmtools';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="vvmtools.VVMTools.VARTYPE" href="attribute/vvmtools.VVMTools.VARTYPE.html" />
+    <link rel="next" title="vvmtools.VVMTools.get_var" href="generated/vvmtools.VVMTools.get_var.html" />
     <link rel="prev" title="VVMTools" href="../../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -151,7 +151,6 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">VVMTools Class</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="attribute/vvmtools.VVMTools.VARTYPE.html">vvmtools.VVMTools.VARTYPE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/vvmtools.VVMTools.get_var.html">vvmtools.VVMTools.get_var</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/vvmtools.VVMTools.get_var_parallel.html">vvmtools.VVMTools.get_var_parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/vvmtools.VVMTools.func_time_parallel.html">vvmtools.VVMTools.func_time_parallel</a></li>
@@ -336,19 +335,25 @@ document.write(`
                   
   <section id="vvmtools-class">
 <h1>VVMTools Class<a class="headerlink" href="#vvmtools-class" title="Link to this heading">#</a></h1>
-<dl class="py attribute">
+<dl class="py class">
 <dt class="sig sig-object py" id="vvmtools.VVMTools">
-<span class="sig-prename descclassname"><span class="pre">vvmtools.</span></span><span class="sig-name descname"><span class="pre">VVMTools</span></span><a class="headerlink" href="#vvmtools.VVMTools" title="Link to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#vvmtools.VVMTools" title="vvmtools.VVMTools"><code class="xref py py-class docutils literal notranslate"><span class="pre">VVMTools</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vvmtools.</span></span><span class="sig-name descname"><span class="pre">VVMTools</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/vvmtools/core.html#VVMTools"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vvmtools.VVMTools" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to handle variable extraction and processing from simulation output files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>case_path</strong> (<em>str</em>) – Path to the directory containing case files.</p></li>
+<li><p><strong>debug_mode</strong> (<em>bool</em><em>, </em><em>optional</em>) – Optional flag to enable debug mode for logging, defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <section id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="attribute/vvmtools.VVMTools.VARTYPE.html#vvmtools.VVMTools.VARTYPE" title="vvmtools.VVMTools.VARTYPE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.VARTYPE</span></code></a></p></td>
-<td><p></p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -363,14 +368,14 @@ document.write(`
 <h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.get_var.html#vvmtools.VVMTools.get_var" title="vvmtools.VVMTools.get_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.get_var.html#vvmtools.VVMTools.get_var" title="vvmtools.VVMTools.get_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var</span></code></a>(var, time[, ...])</p></td>
+<td><p>Get a variable's data at a specified time and domain range.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.get_var_parallel.html#vvmtools.VVMTools.get_var_parallel" title="vvmtools.VVMTools.get_var_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var_parallel</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.get_var_parallel.html#vvmtools.VVMTools.get_var_parallel" title="vvmtools.VVMTools.get_var_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var_parallel</span></code></a>(var, ...)</p></td>
+<td><p>Get variable data for multiple time steps in parallel.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.func_time_parallel.html#vvmtools.VVMTools.func_time_parallel" title="vvmtools.VVMTools.func_time_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.func_time_parallel</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.func_time_parallel.html#vvmtools.VVMTools.func_time_parallel" title="vvmtools.VVMTools.func_time_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.func_time_parallel</span></code></a>(func[, ...])</p></td>
+<td><p>Parallelize a time-dependent function over multiple time steps using multiprocessing.</p></td>
 </tr>
 </tbody>
 </table>
@@ -399,11 +404,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="attribute/vvmtools.VVMTools.VARTYPE.html"
+       href="generated/vvmtools.VVMTools.get_var.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">vvmtools.VVMTools.VARTYPE</p>
+        <p class="prev-next-title">vvmtools.VVMTools.get_var</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
