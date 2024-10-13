@@ -1,6 +1,6 @@
 ﻿vvmtools.VVMTools.get\_var
 ==========================
 
-.. currentmodule:: vvmtools
+.. currentmodule:: vvmtools.VVMTools
 
-.. automethod:: VVMTools.get_var
+.. autodata:: get_var

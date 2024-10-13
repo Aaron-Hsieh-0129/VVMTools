@@ -1,6 +1,6 @@
 ﻿vvmtools.VVMTools.get\_var\_parallel
 ====================================
 
-.. currentmodule:: vvmtools
+.. currentmodule:: vvmtools.VVMTools
 
-.. automethod:: VVMTools.get_var_parallel
+.. autodata:: get_var_parallel

@@ -24,7 +24,6 @@ extensions = [
     'sphinx.ext.napoleon',  # For Google-style or NumPy-style docstrings
     'sphinx.ext.viewcode',   # For including links to source code
     'sphinx.ext.autosummary',  # Generates summary tables for modules/classes
-    'numpydoc'
 ]
 
 templates_path = ['_templates']
