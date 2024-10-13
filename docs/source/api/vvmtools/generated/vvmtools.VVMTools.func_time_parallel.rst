@@ -1,6 +1,6 @@
 ﻿vvmtools.VVMTools.func\_time\_parallel
 ======================================
 
-.. currentmodule:: vvmtools.VVMTools
+.. currentmodule:: vvmtools
 
-.. autodata:: func_time_parallel
+.. automethod:: VVMTools.func_time_parallel
