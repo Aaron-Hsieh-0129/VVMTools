@@ -33,6 +33,7 @@ exclude_patterns = []
 autosummary_generate = True  # Enable autosummary to generate files automatically
 
 # To customize how types are presented in the documentation
+autodoc_mock_imports = ['vvmtools']
 autodoc_typehints = 'description'
 autodoc_default_options = {
     'members': True,  # Include all members

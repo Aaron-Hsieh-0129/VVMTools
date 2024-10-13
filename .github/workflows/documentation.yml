@@ -14,6 +14,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip3 install sphinx sphinx-book-theme breathe numpydoc 
+          pip3 install -e .
       - name: Sphinx build
         run: |
           sphinx-build -b html docs/source docs/build
