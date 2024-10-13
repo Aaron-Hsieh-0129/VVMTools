@@ -133,7 +133,12 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vvmtools.html">VVMTools</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="vvmtools.html">VVMTools Class</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/vvmtools.VVMTools.get_var.html">vvmtools.VVMTools.get_var</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vvmtools.VVMTools.get_var_parallel.html">vvmtools.VVMTools.get_var_parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/vvmtools.VVMTools.func_time_parallel.html">vvmtools.VVMTools.func_time_parallel</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -282,10 +287,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.VVMTools"><code class="docutils literal notranslate"><span class="pre">VVMTools</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.VVMTools.attribute1"><code class="docutils literal notranslate"><span class="pre">VVMTools.attribute1</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.VVMTools"><code class="docutils literal notranslate"><span class="pre">VVMTools</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
 </ul>
@@ -300,7 +302,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="vvmtools-vvmtools-vvmtools">
-<h1>VVMTools (<a class="reference internal" href="vvmtools.html#vvmtools.VVMTools" title="vvmtools.VVMTools"><code class="xref py py-class docutils literal notranslate"><span class="pre">vvmtools.VVMTools</span></code></a>)<a class="headerlink" href="#vvmtools-vvmtools-vvmtools" title="Permalink to this heading">#</a></h1>
+<h1>VVMTools (<a class="reference internal" href="#vvmtools.VVMTools" title="vvmtools.VVMTools"><code class="xref py py-class docutils literal notranslate"><span class="pre">vvmtools.VVMTools</span></code></a>)<a class="headerlink" href="#vvmtools-vvmtools-vvmtools" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="vvmtools.VVMTools">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vvmtools.</span></span><span class="sig-name descname"><span class="pre">VVMTools</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/vvmtools/core.html#VVMTools"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vvmtools.VVMTools" title="Permalink to this definition">#</a></dt>
@@ -314,31 +316,23 @@ document.write(`
 </ul>
 </dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="vvmtools.VVMTools.attribute1">
-<span class="sig-name descname"><span class="pre">attribute1</span></span><a class="headerlink" href="#vvmtools.VVMTools.attribute1" title="Permalink to this definition">#</a></dt>
-<dd><p>Description of <cite>attribute1</cite>. Provide details about the type
-and any specific usage notes, constraints, or examples.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>type</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>VARTYPE (dict): The name of the person.</p>
 </dd>
 </dl>
-</dd></dl>
-
 </dd></dl>
 
 <section id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="vvmtools.html#id9" title="vvmtools.VVMTools.get_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var</span></code></a>(var, time[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.get_var.html#vvmtools.VVMTools.get_var" title="vvmtools.VVMTools.get_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var</span></code></a>(var, time[, ...])</p></td>
 <td><p>Get a variable's data at a specified time and domain range.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="vvmtools.html#id10" title="vvmtools.VVMTools.get_var_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var_parallel</span></code></a>(var, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.get_var_parallel.html#vvmtools.VVMTools.get_var_parallel" title="vvmtools.VVMTools.get_var_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.get_var_parallel</span></code></a>(var, ...)</p></td>
 <td><p>Get variable data for multiple time steps in parallel.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="vvmtools.html#id11" title="vvmtools.VVMTools.func_time_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.func_time_parallel</span></code></a>(func[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.VVMTools.func_time_parallel.html#vvmtools.VVMTools.func_time_parallel" title="vvmtools.VVMTools.func_time_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.VVMTools.func_time_parallel</span></code></a>(func[, ...])</p></td>
 <td><p>Parallelize a time-dependent function over multiple time steps using multiprocessing.</p></td>
 </tr>
 </tbody>
@@ -379,10 +373,7 @@ and any specific usage notes, constraints, or examples.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.VVMTools"><code class="docutils literal notranslate"><span class="pre">VVMTools</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.VVMTools.attribute1"><code class="docutils literal notranslate"><span class="pre">VVMTools.attribute1</span></code></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.VVMTools"><code class="docutils literal notranslate"><span class="pre">VVMTools</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
 </ul>
