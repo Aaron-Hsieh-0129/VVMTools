@@ -412,18 +412,15 @@ class VVMTools:
 
         Example:
             >>> import numpy as np
-
             >>> def cal_TKE_land(t, func_config):
             >>>     u = np.squeeze(vvmtool.get_var("u", t, numpy=True, domain_range=func_config["domain_range"]))
             >>>     v = np.squeeze(vvmtool.get_var("v", t, numpy=True, domain_range=func_config["domain_range"]))
             >>>     w = np.squeeze(vvmtool.get_var("w", t, numpy=True, domain_range=func_config["domain_range"]))
-
             >>>     u_inter = (u[:, :, 1:] + u[:, :, :-1])[1:, 1:] / 2
             >>>     v_inter = (v[:, 1:] + v[:, :-1])[1:, :, 1:] / 2
             >>>     w_inter = (w[1:] + w[:-1])[:, 1:, 1:] / 2
             >>>     TKE = np.mean(u_inter ** 2 + v_inter ** 2 + w_inter ** 2, axis=(1, 2))
             >>>     return TKE
-
             >>> func_config = {"domain_range": (None, None, None, None, 64, 128)}
             >>> TKE_land = vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 720, 1)), func_config=func_config, cores=30)
         """

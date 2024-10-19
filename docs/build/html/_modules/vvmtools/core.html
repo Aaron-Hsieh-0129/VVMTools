@@ -670,18 +670,15 @@ document.write(`
 
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; import numpy as np</span>
-
 <span class="sd">            &gt;&gt;&gt; def cal_TKE_land(t, func_config):</span>
 <span class="sd">            &gt;&gt;&gt;     u = np.squeeze(vvmtool.get_var(&quot;u&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
 <span class="sd">            &gt;&gt;&gt;     v = np.squeeze(vvmtool.get_var(&quot;v&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
 <span class="sd">            &gt;&gt;&gt;     w = np.squeeze(vvmtool.get_var(&quot;w&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
-
 <span class="sd">            &gt;&gt;&gt;     u_inter = (u[:, :, 1:] + u[:, :, :-1])[1:, 1:] / 2</span>
 <span class="sd">            &gt;&gt;&gt;     v_inter = (v[:, 1:] + v[:, :-1])[1:, :, 1:] / 2</span>
 <span class="sd">            &gt;&gt;&gt;     w_inter = (w[1:] + w[:-1])[:, 1:, 1:] / 2</span>
 <span class="sd">            &gt;&gt;&gt;     TKE = np.mean(u_inter ** 2 + v_inter ** 2 + w_inter ** 2, axis=(1, 2))</span>
 <span class="sd">            &gt;&gt;&gt;     return TKE</span>
-
 <span class="sd">            &gt;&gt;&gt; func_config = {&quot;domain_range&quot;: (None, None, None, None, 64, 128)}</span>
 <span class="sd">            &gt;&gt;&gt; TKE_land = vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 720, 1)), func_config=func_config, cores=30)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
