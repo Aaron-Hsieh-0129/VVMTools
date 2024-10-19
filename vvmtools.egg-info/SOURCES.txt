@@ -1,4 +1,4 @@
-README.md
+README.rst
 setup.py
 vvmtools/__init__.py
 vvmtools/core.py

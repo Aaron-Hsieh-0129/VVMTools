@@ -6,6 +6,7 @@ import numpy as np
 import multiprocessing
 import datetime
 import logging
+from functools import partial
 
 class VVMTools:
     """
@@ -390,31 +391,43 @@ class VVMTools:
     def func_time_parallel(self, 
                            func, 
                            time_steps=None, # Signature shows np.arange(0, 720, 1)
+                           func_config=None,
                            cores=5):
-
         """
-        Parallelize a time-dependent function over multiple time steps using multiprocessing.
-    
-        This method applies a given function `func` to each time step in the `time_steps` list 
-        in parallel, utilizing the specified number of CPU cores. The results are combined and 
-        returned as a NumPy array.
-    
-        :param func: The time-dependent function to be parallelized. It should accept a single argument, which is the time step `t`.
+        Applies a time-dependent function `func` in parallel over a list of time steps. 
+        The result is returned as a NumPy array.
+
+        :param func: The time-dependent function to be parallelized. It should accept two arguments: 
+                     the time step `t` and a config object (containing any additional parameters).
         :type func: callable
         :param time_steps: List or array of time steps over which to apply the function. Defaults to `np.arange(0, 720, 1)`.
         :type time_steps: list or array-like, optional
+        :param func_config: A dictionary or object containing additional parameters for the function.
+        :type func_config: dict or object, optional
         :param cores: The number of CPU cores to use for parallel processing, defaults to 20.
         :type cores: int, optional
         :return: The combined result of applying the function to all time steps.
         :rtype: numpy.ndarray
         :raises TypeError: If `time_steps` is not a list or array-like of integers.
-    
+
         Example:
-            >>> def A(t):
-            >>>     return t ** 2
-            >>> vvm_tools = VVMTools("/path/to/case")
-            >>> result = vvm_tools.func_time_parallel(A, time_steps=np.arange(0, 720, 1), cores=4)
+            >>> import numpy as np
+
+            >>> def cal_TKE_land(t, func_config):
+            >>>     u = np.squeeze(vvmtool.get_var("u", t, numpy=True, domain_range=func_config["domain_range"]))
+            >>>     v = np.squeeze(vvmtool.get_var("v", t, numpy=True, domain_range=func_config["domain_range"]))
+            >>>     w = np.squeeze(vvmtool.get_var("w", t, numpy=True, domain_range=func_config["domain_range"]))
+
+            >>>     u_inter = (u[:, :, 1:] + u[:, :, :-1])[1:, 1:] / 2
+            >>>     v_inter = (v[:, 1:] + v[:, :-1])[1:, :, 1:] / 2
+            >>>     w_inter = (w[1:] + w[:-1])[:, 1:, 1:] / 2
+            >>>     TKE = np.mean(u_inter ** 2 + v_inter ** 2 + w_inter ** 2, axis=(1, 2))
+            >>>     return TKE
+
+            >>> func_config = {"domain_range": (None, None, None, None, 64, 128)}
+            >>> TKE_land = vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 720, 1)), func_config=func_config, cores=30)
         """
+
         # If time_steps is None, use np.arange(0, 720, 1)
         if time_steps is None:
             time_steps = np.arange(0, 720, 1)
@@ -425,9 +438,12 @@ class VVMTools:
         if not isinstance(time_steps, (list, tuple)):
             raise TypeError("time_steps must be a list or tuple of integers.")
 
+        # Create a partial function that pre-binds the config to the func
+        func_with_config = partial(func, func_config=func_config)
+
         # Use multiprocessing to fetch variable data in parallel
         with multiprocessing.Pool(processes=cores) as pool:
-            results = pool.starmap(func, [(time, ) for time in time_steps])
+            results = pool.starmap(func_with_config, [(time, ) for time in time_steps])
         
         # Combine and return the results
         return np.squeeze(np.array(results))
