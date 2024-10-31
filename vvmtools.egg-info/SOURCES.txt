@@ -1,9 +1,0 @@
-README.rst
-setup.py
-vvmtools/__init__.py
-vvmtools/core.py
-vvmtools.egg-info/PKG-INFO
-vvmtools.egg-info/SOURCES.txt
-vvmtools.egg-info/dependency_links.txt
-vvmtools.egg-info/requires.txt
-vvmtools.egg-info/top_level.txt
