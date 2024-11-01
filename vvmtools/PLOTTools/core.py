@@ -234,6 +234,9 @@ class dataPlotters:
                                            )
             plt.show()
 
+        .. figure:: _images/dataPlotter_draw_xt.png
+            :scale: 30%
+            :class: with-border
 
         draw x-t diagram with optional configuration.
         ::
@@ -252,6 +255,10 @@ class dataPlotters:
                                             figname     = ''
                                            )
             plt.show()
+
+        .. figure:: _images/dataPlotter_draw_xt_optional.png
+            :scale: 30%
+            :class: with-border
 
         """
 
@@ -365,6 +372,10 @@ class dataPlotters:
            
             plt.show()
 
+        .. figure:: _images/dataPlotter_draw_zt.png
+            :scale: 30%
+            :class: with-border
+
         draw z-t diagram with optional configuration.
         ::
 
@@ -385,6 +396,10 @@ class dataPlotters:
                                   )
            
             plt.show()
+
+        .. figure:: _images/dataPlotter_draw_zt_optional.png
+            :scale: 30%
+            :class: with-border
 
         """
 
