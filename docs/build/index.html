@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>VVMTools &#8212; vvmtools v0.1.0 documentation</title>
+    <title>VVMTools &#8212; vvmtools v1.0.0 documentation</title>
   
   
   
@@ -44,7 +44,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="VVMTools Class" href="api/vvmtools/vvmtools.html" />
+    <link rel="next" title="vvmtools Module" href="api/vvmtools/vvmtools.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -127,17 +127,24 @@
   
   
   
-    <p class="title logo__title">vvmtools v0.1.0 documentation</p>
+    <p class="title logo__title">vvmtools v1.0.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Home</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api/vvmtools/vvmtools.html">VVMTools Class</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/generated/vvmtools.VVMTools.get_var.html">vvmtools.VVMTools.get_var</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/generated/vvmtools.VVMTools.get_var_parallel.html">vvmtools.VVMTools.get_var_parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/generated/vvmtools.VVMTools.func_time_parallel.html">vvmtools.VVMTools.func_time_parallel</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api/vvmtools/vvmtools.html">vvmtools Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/vvmtools/AnalyzeTools/analyzetools.html">AnalyzeTools Module</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/vvmtools/PLOTTools/plottools.html">PLOTTools Module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html">vvmtools.PLOTTools.dataPlotters.draw_xt</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -336,10 +343,9 @@ document.write(`
 <div class="toctree-wrapper compound">
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/vvmtools/vvmtools.html">VVMTools Class</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/vvmtools.html#vvmtools.VVMTools"><code class="docutils literal notranslate"><span class="pre">VVMTools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/vvmtools.html#attributes">Attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/vvmtools.html#methods">Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/vvmtools/vvmtools.html">vvmtools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/AnalyzeTools/analyzetools.html">AnalyzeTools Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/vvmtools/PLOTTools/plottools.html">PLOTTools Module</a></li>
 </ul>
 </li>
 </ul>
@@ -388,10 +394,10 @@ document.write(`
 <section id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this heading">#</a></h2>
 <p>To initialize the <code class="docutils literal notranslate"><span class="pre">VVMTools</span></code> class, provide the path to the directory containing the case files. Optionally, enable <code class="docutils literal notranslate"><span class="pre">debug_mode</span></code> to log more detailed information:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vvm_tools</span> <span class="kn">import</span> <span class="n">VVMTools</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vvmtools</span>
 
 <span class="n">case_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/case/files&quot;</span>
-<span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">VVMTools</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">vvmtools</span><span class="o">.</span><span class="n">AnalyzeTools</span><span class="o">.</span><span class="n">VVMAnalyzer</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -412,8 +418,6 @@ document.write(`
 </pre></div>
 </div>
 </li>
-</ol>
-<ol class="arabic" start="2">
 <li><p><strong>Parallelize Function in Time</strong></p>
 <p>For faster processing of data over multiple time steps, use <code class="docutils literal notranslate"><span class="pre">get_var_parallel</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_define_function</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
@@ -430,7 +434,8 @@ document.write(`
 <section id="debugging">
 <h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this heading">#</a></h2>
 <p>Enable debugging by setting <code class="docutils literal notranslate"><span class="pre">debug_mode=True</span></code> when initializing <code class="docutils literal notranslate"><span class="pre">VVMTools</span></code>. This will provide detailed logging to help trace errors and issues.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">VVMTools</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vvmtools</span>
+<span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">vvmtools</span><span class="o">.</span><span class="n">AnalyzeTools</span><span class="o">.</span><span class="n">VVMAnalyzer</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will display warnings, errors, and status information during execution.</p>
@@ -453,7 +458,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">VVMTools Class</p>
+        <p class="prev-next-title">vvmtools Module</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -501,7 +506,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Aaron Hsieh
+By Aaron Hsieh, Shao-Yu Tseng
 </p>
 
   </div>
@@ -511,7 +516,7 @@ By Aaron Hsieh
 
   <p class="copyright">
     
-      © Copyright 2024, Aaron Hsieh.
+      © Copyright 2024, Aaron Hsieh, Shao-Yu Tseng.
       <br/>
     
   </p>

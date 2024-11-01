@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vvmtools.AnalyzeTools.core &#8212; vvmtools v1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/vvmtools/AnalyzeTools/core';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">vvmtools v1.0.0 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/vvmtools/vvmtools.html">vvmtools Module</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/analyzetools.html">AnalyzeTools Module</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/plottools.html">PLOTTools Module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html">vvmtools.PLOTTools.dataPlotters.draw_xt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/Aaron-Hsieh-0129/VVMTools" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for vvmtools.AnalyzeTools.core</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<div class="viewcode-block" id="VVMAnalyzer"><a class="viewcode-back" href="../../../api/vvmtools/AnalyzeTools/analyzetools.html#vvmtools.AnalyzeTools.VVMAnalyzer">[docs]</a><span class="k">class</span> <span class="nc">VVMAnalyzer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to handle variable extraction and processing from simulation output files.</span>
+
+<span class="sd">    :param case_path: Path to the directory containing case files.</span>
+<span class="sd">    :type case_path: str</span>
+<span class="sd">    :param debug_mode: Optional flag to enable debug mode for logging, defaults to False.</span>
+<span class="sd">    :type debug_mode: bool, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the VVMTools class.</span>
+
+<span class="sd">        This constructor initializes key class attributes, including dictionaries for variable types,</span>
+<span class="sd">        spatial dimensions, and initial profiles. It also handles time-related data and enables logging</span>
+<span class="sd">        when debug mode is activated. Helper methods are called to set up variable type dictionaries, </span>
+<span class="sd">        load topographic variables, establish spatial dimensions, and create a time array.</span>
+
+<span class="sd">        :param case_path: The path to the directory containing the case files.</span>
+<span class="sd">        :type case_path: str</span>
+<span class="sd">        :param debug_mode: Flag indicating whether to enable debug logging. Defaults to False.</span>
+<span class="sd">        :type debug_mode: bool, optional</span>
+<span class="sd">        :ivar VARTYPE: Variable type for VVM tools.</span>
+<span class="sd">        :ivar DIM: Dimension for VVM simulations. There will be `xc`, `yc` `zc` (grid center), `zz` (grid upper) inside</span>
+<span class="sd">        :ivar INIT: There will be </span>
+<span class="sd">        :ivar time_array_str: String array for time values.</span>
+<span class="sd">        :ivar DEBUGMODE: Flag for debug mode.</span>
+<span class="sd">        :ivar CASEPATH: Path for case files.</span>
+
+<span class="sd">        The constructor performs the following actions:</span>
+<span class="sd">        </span>
+<span class="sd">        - Initializes `VARTYPE`, `DIM`, and `INIT` dictionaries to hold variable types, dimensions, and initial profile data respectively.</span>
+<span class="sd">        - Calls the following helper methods:</span>
+<span class="sd">            - `_build_variable_type_dict`: To construct a dictionary of variable types.</span>
+<span class="sd">            - `_load_topo_variables`: To load topographic variables from the case directory.</span>
+<span class="sd">            - `_get_initial_profile`: To read and store the initial atmospheric profile.</span>
+<span class="sd">            - `_get_date_time`: To generate an array of time points from 05:00 to 05:00 of the next day.</span>
+<span class="sd">            - `_build_dimension`: To extract and store the spatial dimensions (`xc`, `yc`, `zc`).</span>
+<span class="sd">        - Sets up logging based on the `debug_mode` parameter. If `debug_mode` is True, logging level is set to DEBUG.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span> <span class="o">=</span> <span class="n">case_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEBUGMODE</span> <span class="o">=</span> <span class="n">debug_mode</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">VARTYPE</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DIM</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_build_variable_type_dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_topo_variables</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_initial_profile</span><span class="p">()</span>        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_date_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_build_dimension</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">debug_mode</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_get_date_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a time array from 05:00 to the next day&#39;s 05:00.</span>
+
+<span class="sd">        The generated array contains string representations of times at 2-minute intervals.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;05:00&quot;</span><span class="p">,</span> <span class="s2">&quot;%H:%M&quot;</span><span class="p">)</span>
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">start_time</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+        <span class="n">steps</span> <span class="o">=</span> <span class="mi">721</span>
+        <span class="n">time_delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="n">steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_array_str</span> <span class="o">=</span> <span class="p">[(</span><span class="n">start_time</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">time_delta</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">_extract_file_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extracts case name, variable type, and time information from the given filename.</span>
+
+<span class="sd">        :param filename: The name of the file to extract information from.</span>
+<span class="sd">        :type filename: str</span>
+<span class="sd">        :return: Tuple containing case name, variable type, and time information. </span>
+<span class="sd">                 Returns None for each element if the pattern does not match.</span>
+<span class="sd">        :rtype: tuple(str, str, str)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)\.[CL]\.(\w+)-(\d+)\.nc&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+            <span class="n">case_name</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">variable_type</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">time_info</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">case_name</span><span class="p">,</span> <span class="n">variable_type</span><span class="p">,</span> <span class="n">time_info</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_record_variables_in_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">variable_type</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Records variables from a NetCDF file into the `VARTYPE` dictionary.</span>
+
+<span class="sd">        :param file_path: Path to the NetCDF file.</span>
+<span class="sd">        :type file_path: str</span>
+<span class="sd">        :param variable_type: Type of the variable to categorize.</span>
+<span class="sd">        :type variable_type: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">not_important_variables</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;xc&quot;</span><span class="p">,</span> <span class="s2">&quot;yc&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;zc&quot;</span><span class="p">,</span> <span class="s2">&quot;lev&quot;</span><span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">variable</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">VARTYPE</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">not_important_variables</span><span class="p">:</span>
+                            <span class="k">continue</span>
+                        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2"> already exists in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">VARTYPE</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span><span class="si">}</span><span class="s2">, renaming as </span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">_2 in </span><span class="si">{</span><span class="n">variable_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">VARTYPE</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">_2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">variable_type</span>
+                        
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Add the variable and its type to the dictionary</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">VARTYPE</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span> <span class="o">=</span> <span class="n">variable_type</span>
+                <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error reading </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_build_variable_type_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Walk through the case directory and build a dictionary of variables and their types.</span>
+
+<span class="sd">        It searches for NetCDF files and processes files where the time step is &#39;000000&#39; </span>
+<span class="sd">        to record their variables in the `VARTYPE` dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.nc&quot;</span><span class="p">):</span>  <span class="c1"># Search for all .nc files</span>
+                    <span class="n">case_name</span><span class="p">,</span> <span class="n">variable_type</span><span class="p">,</span> <span class="n">time_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_file_info</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">time_info</span> <span class="o">==</span> <span class="s2">&quot;000000&quot;</span><span class="p">:</span>  <span class="c1"># Only process files with time 000000</span>
+                        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_record_variables_in_dict</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">variable_type</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_build_dimension</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build the spatial dimensions (`xc`, `yc`, `zc`) and save them into the `DIM` dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DIM</span><span class="p">[</span><span class="s2">&quot;xc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;xc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DIM</span><span class="p">[</span><span class="s2">&quot;yc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;yc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DIM</span><span class="p">[</span><span class="s2">&quot;zc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZC&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">DIM</span><span class="p">[</span><span class="s2">&quot;zz&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZZ&quot;</span><span class="p">]</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">_load_topo_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load variables from the &#39;TOPO.nc&#39; file and add them to the `VARTYPE` dictionary.</span>
+
+<span class="sd">        If &#39;TOPO.nc&#39; is not found, it logs a warning.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">topo_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span><span class="p">,</span> <span class="s1">&#39;TOPO.nc&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">topo_file</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TOPO.nc not found in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">topo_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">VARTYPE</span><span class="p">[</span><span class="n">variable</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TOPO&quot;</span>  <span class="c1"># Label these variables as &quot;TOPO&quot;</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error reading </span><span class="si">{</span><span class="n">topo_file</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_variable_file_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the type of the file associated with the given variable.</span>
+
+<span class="sd">        :param variable_name: The name of the variable.</span>
+<span class="sd">        :type variable_name: str</span>
+<span class="sd">        :return: The type of file in which the variable is stored or &quot;Variable not found&quot; if unavailable.</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">VARTYPE</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">variable_name</span><span class="p">,</span> <span class="s2">&quot;Variable not found&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_Range_tuple_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Range</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if the range is a tuple or list with exactly six elements (k1, k2, j1, j2, i1, i2).</span>
+
+<span class="sd">        :param Range: The range to validate.</span>
+<span class="sd">        :type Range: tuple or list</span>
+<span class="sd">        :raises ValueError: If `Range` is not a tuple/list or does not have six elements.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Range</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">Range</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Range must be a tuple or list with 6 elements (k1, k2, j1, j2, i1, i2).&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Read initial profile and save to self.INIT</span>
+    <span class="k">def</span> <span class="nf">_get_initial_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read the initial profile from the &#39;fort.98&#39; file and store the extracted data in the `INIT` dictionary.</span>
+
+<span class="sd">        It parses columns such as RHO, THBAR, PBAR, PIBAR, and QVBAR, stopping when the &#39;UG(K)&#39; section is found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data_array</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Open the file for reading</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span> <span class="o">+</span> <span class="s2">&quot;/fort.98&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>  <span class="c1"># Replace &#39;datafile.txt&#39; with your actual file name</span>
+            <span class="n">reading_data</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+                <span class="c1"># Check for the start of the data section</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\s*K,\s*RHO\(K\)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+                    <span class="n">reading_data</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">flag</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">continue</span>
+        
+                <span class="c1"># Stop reading data when the next set of equal signs appears</span>
+                <span class="k">if</span> <span class="n">reading_data</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\s*={5,}&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>  <span class="c1"># Matches a line with 5 or more &quot;=&quot;</span>
+                    <span class="k">continue</span>
+        
+                <span class="c1"># Read and process data lines after the header</span>
+                <span class="k">if</span> <span class="n">reading_data</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\s*\d+\s+&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>  <span class="c1"># Matches lines with data starting with a number</span>
+                        <span class="c1"># Split the line into values</span>
+                        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                        <span class="c1"># Convert values to appropriate types (float)</span>
+                        <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">values</span><span class="p">))</span>
+                        <span class="c1"># Append to the data array</span>
+                        <span class="n">data_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\s*K,\s*UG\(K\)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+                    <span class="k">break</span>
+
+        <span class="n">data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_array</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;RHO&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;THBAR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;PBAR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;PIBAR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;QVBAR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_array</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span>
+
+        <span class="c1"># get zc and zz</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span> <span class="o">+</span> <span class="s2">&quot;/fort.98&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">in_data_section</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">out_data_section</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">zc_zt_data</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+                <span class="c1"># Skip the ===== after the header</span>
+                <span class="k">if</span> <span class="n">out_data_section</span><span class="p">:</span>
+                    <span class="n">out_data_section</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">continue</span>
+
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\s*K,\s*ZZ\(K\)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
+                    <span class="n">in_data_section</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">out_data_section</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># Stop processing if we reach the end marker for the section</span>
+                <span class="k">if</span> <span class="n">in_data_section</span> <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\s*={5,}&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>  <span class="c1"># Matches a line with 5 or more &quot;=&quot;</span>
+                    <span class="k">break</span>
+
+                <span class="c1"># If we&#39;re in the data section, extract relevant ZC and ZT values</span>
+                <span class="k">if</span> <span class="n">in_data_section</span><span class="p">:</span>
+                    <span class="c1"># Match columns based on expected data format</span>
+                    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*\d+\s+([0-9.]+)\s+([0-9.]+)&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                        <span class="n">zc_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># ZC (ZZ(K)) column</span>
+                        <span class="n">zt_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># ZT (ZT(K)) column</span>
+                        <span class="n">zc_zt_data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">zc_value</span><span class="p">,</span> <span class="n">zt_value</span><span class="p">])</span>
+        <span class="n">zc_zt_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zc_zt_data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZC&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zc_zt_data</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zc_zt_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">]</span>
+
+<div class="viewcode-block" id="VVMAnalyzer.get_var"><a class="viewcode-back" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var.html#vvmtools.AnalyzeTools.VVMAnalyzer.get_var">[docs]</a>    <span class="k">def</span> <span class="nf">get_var</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                <span class="n">var</span><span class="p">,</span> 
+                <span class="n">time</span><span class="p">,</span> 
+                <span class="n">domain_range</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="c1"># (k1, k2, j1, j2, i1, i2)</span>
+                <span class="n">numpy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                <span class="n">compute_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a variable&#39;s data at a specified time and domain range.</span>
+
+<span class="sd">        This function searches for the appropriate file based on variable type and time step. </span>
+<span class="sd">        It supports optional domain range filtering, and the result can be returned as a NumPy array.</span>
+
+<span class="sd">        :param var: Name of the variable to retrieve.</span>
+<span class="sd">        :type var: str</span>
+<span class="sd">        :param time: Time step for which the variable data is requested.</span>
+<span class="sd">        :type time: int</span>
+<span class="sd">        :param domain_range: Tuple specifying the range in each dimension (k1, k2, j1, j2, i1, i2), defaults to (None, None, None, None, None, None).</span>
+<span class="sd">        :type domain_range: tuple, optional</span>
+<span class="sd">        :param numpy: Whether to return the data as a NumPy array, defaults to False.</span>
+<span class="sd">        :type numpy: bool, optional</span>
+<span class="sd">        :param compute_mean: Whether to compute the mean of the variable data, defaults to False.</span>
+<span class="sd">        :type compute_mean: bool, optional</span>
+<span class="sd">        :param axis: Axis or axes along which the mean is computed, defaults to None.</span>
+<span class="sd">        :type axis: int or tuple of ints, optional</span>
+<span class="sd">        :return: The variable data, either as a NumPy array or as xarray data depending on options.</span>
+<span class="sd">        :rtype: numpy.ndarray or xarray.DataArray</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">            &gt;&gt;&gt; import vvmtools</span>
+<span class="sd">            &gt;&gt;&gt; my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path=&quot;path/to/case&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; u = my_vvmtool.get_var(&quot;u&quot;, 0, numpy=True)</span>
+<span class="sd">            &gt;&gt;&gt; u_mean = my_vvmtool.get_var(&quot;u&quot;, 0, numpy=True, compute_mean=True)</span>
+<span class="sd">            &gt;&gt;&gt; u_mean_along_x = my_vvmtool.get_var(&quot;u&quot;, 0, numpy=True, compute_mean=True, axis=1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># Find the file associated with the given variable and time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Range_tuple_check</span><span class="p">(</span><span class="n">domain_range</span><span class="p">)</span>
+        
+        <span class="n">variable_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_variable_file_type</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUGMODE</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Variable type: </span><span class="si">{</span><span class="n">variable_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">variable_type</span> <span class="o">==</span> <span class="s2">&quot;Variable not found&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Variable </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2"> not found in the dataset.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        
+
+        <span class="k">if</span> <span class="n">variable_type</span> <span class="o">==</span> <span class="s2">&quot;TOPO&quot;</span><span class="p">:</span>
+            <span class="c1"># Special case for TOPO variables, always in TOPO.nc</span>
+            <span class="n">topo_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span><span class="p">,</span> <span class="s1">&#39;TOPO.nc&#39;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">topo_file</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span>
+                    <span class="n">variable_data</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Get the variable data</span>
+                    <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                    <span class="k">return</span> <span class="n">variable_data</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error reading </span><span class="si">{</span><span class="n">topo_file</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            
+            <span class="c1"># Construct the expected filename pattern for the given variable and time</span>
+            <span class="n">file_pattern</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">variable_type</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="s1">&#39;</span><span class="si">{:06d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="si">}</span><span class="s2">.nc&quot;</span>
+            <span class="n">regex_pattern</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;.*</span><span class="si">{</span><span class="n">file_pattern</span><span class="si">}</span><span class="s2">$&quot;</span>  <span class="c1"># Convert glob pattern to regex</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUGMODE</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Regex Pattern: </span><span class="si">{</span><span class="n">regex_pattern</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+            <span class="c1"># Search for the file in the case path</span>
+            <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CASEPATH</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex_pattern</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEBUGMODE</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File found: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="c1"># Uncomment the following block to open and read the file</span>
+                        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">var</span> <span class="o">==</span> <span class="s2">&quot;eta_2&quot;</span><span class="p">:</span>
+                                <span class="n">var</span> <span class="o">=</span> <span class="s2">&quot;eta&quot;</span>
+                            <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span>
+                                <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">j1</span><span class="p">,</span> <span class="n">j2</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="o">=</span> <span class="n">domain_range</span>
+
+                                <span class="n">dims</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">indexes</span><span class="p">)</span>
+                                <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">r</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">domain_range</span><span class="p">):</span>
+                                    <span class="k">if</span> <span class="n">dims</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                                        <span class="n">variable_data</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="n">k1</span><span class="p">:</span><span class="n">k2</span><span class="p">,</span> <span class="n">j1</span><span class="p">:</span><span class="n">j2</span><span class="p">,</span> <span class="n">i1</span><span class="p">:</span><span class="n">i2</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                                    <span class="k">elif</span> <span class="n">dims</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                                        <span class="n">variable_data</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="n">j1</span><span class="p">:</span><span class="n">j2</span><span class="p">,</span> <span class="n">i1</span><span class="p">:</span><span class="n">i2</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                                    <span class="k">else</span><span class="p">:</span>
+                                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please check the variables dimension&quot;</span><span class="p">)</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">variable_data</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Get the variable data</span>
+                                <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+                                <span class="k">if</span> <span class="n">numpy</span><span class="p">:</span>
+                                    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">variable_data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+
+                                    <span class="k">if</span> <span class="n">compute_mean</span> <span class="ow">and</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                                        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+                                    <span class="k">elif</span> <span class="n">compute_mean</span><span class="p">:</span>
+                                        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                                    <span class="k">else</span><span class="p">:</span>
+                                        <span class="k">return</span> <span class="n">data</span>
+
+                                
+                                <span class="k">return</span> <span class="n">variable_data</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">ds</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error reading </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No file found for variable </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2"> at time </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+    <span class="c1"># Call self.get_var in parallel</span>
+<div class="viewcode-block" id="VVMAnalyzer.get_var_parallel"><a class="viewcode-back" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel.html#vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel">[docs]</a>    <span class="k">def</span> <span class="nf">get_var_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                         <span class="n">var</span><span class="p">,</span> 
+                         <span class="n">time_steps</span><span class="p">,</span> <span class="c1"># array or list of time</span>
+                         <span class="n">domain_range</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>  <span class="c1"># (k1, k2, j1, j2, i1, i2)</span>
+                         <span class="n">compute_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                         <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># axis for mean. e.g. (0, 1)</span>
+                         <span class="n">cores</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get variable data for multiple time steps in parallel.</span>
+
+<span class="sd">        Uses multiprocessing to parallelize the retrieval of variable data across time steps.</span>
+
+<span class="sd">        :param var: The variable name.</span>
+<span class="sd">        :type var: str</span>
+<span class="sd">        :param time_steps: List or array of time steps for which to retrieve the variable data.</span>
+<span class="sd">        :type time_steps: list or array-like</span>
+<span class="sd">        :param domain_range: Tuple specifying the range in each dimension (k1, k2, j1, j2, i1, i2), defaults to (None, None, None, None, None, None).</span>
+<span class="sd">        :type domain_range: tuple, optional</span>
+<span class="sd">        :param compute_mean: Whether to compute the mean of the variable data, defaults to False.</span>
+<span class="sd">        :type compute_mean: bool, optional</span>
+<span class="sd">        :param axis: Axis or axes along which the mean is computed, defaults to None.</span>
+<span class="sd">        :type axis: int or tuple of ints, optional</span>
+<span class="sd">        :param cores: Number of CPU cores to use for parallel processing, defaults to 5.</span>
+<span class="sd">        :type cores: int, optional</span>
+<span class="sd">        :return: The retrieved variable data across time steps.</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        :raises TypeError: If `time_steps` is not a list or tuple of integers.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">            &gt;&gt;&gt; import vvmtools</span>
+<span class="sd">            &gt;&gt;&gt; my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path=&quot;path/to/case&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; domain_range = (None, None, None, None, 64, 128)</span>
+<span class="sd">            &gt;&gt;&gt; time_steps = np.arange(0, 721, 1)</span>
+<span class="sd">            &gt;&gt;&gt; u_tzyx = my_vvmtool.get_var_parallel(&quot;u&quot;, time_steps=time_steps, domain_range=domain_range, cores=20)</span>
+<span class="sd">            &gt;&gt;&gt; u_tz_xymean_subdomain = my_vvmtool.get_var_parallel(&quot;u&quot;, time_steps=time_steps, domain_range=domain_range, compute_mean=True, axis=(1,2), cores=20)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Range_tuple_check</span><span class="p">(</span><span class="n">domain_range</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">time_steps</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">time_steps</span> <span class="o">=</span> <span class="n">time_steps</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;time_steps must be a list or tuple of integers.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Use multiprocessing to fetch variable data in parallel</span>
+        <span class="k">with</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_var</span><span class="p">,</span> <span class="p">[(</span><span class="n">var</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">domain_range</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">compute_mean</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span> <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">time_steps</span><span class="p">])</span>
+        
+        <span class="c1"># Combine and return the results</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="VVMAnalyzer.func_time_parallel"><a class="viewcode-back" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel.html#vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel">[docs]</a>    <span class="k">def</span> <span class="nf">func_time_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                           <span class="n">func</span><span class="p">,</span> 
+                           <span class="n">time_steps</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># Signature shows np.arange(0, 721, 1)</span>
+                           <span class="n">func_config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                           <span class="n">cores</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies a time-dependent function `func` in parallel over a list of time steps. </span>
+<span class="sd">        The result is returned as a NumPy array.</span>
+
+<span class="sd">        :param func: The time-dependent function to be parallelized. It should accept two arguments: </span>
+<span class="sd">                     the time step `t` and a config object (containing any additional parameters).</span>
+<span class="sd">        :type func: callable</span>
+<span class="sd">        :param time_steps: List or array of time steps over which to apply the function. Defaults to `np.arange(0, 721, 1)`.</span>
+<span class="sd">        :type time_steps: list or array-like, optional</span>
+<span class="sd">        :param func_config: A dictionary or object containing additional parameters for the function.</span>
+<span class="sd">        :type func_config: dict or object, optional</span>
+<span class="sd">        :param cores: The number of CPU cores to use for parallel processing, defaults to 20.</span>
+<span class="sd">        :type cores: int, optional</span>
+<span class="sd">        :return: The combined result of applying the function to all time steps.</span>
+<span class="sd">        :rtype: numpy.ndarray</span>
+<span class="sd">        :raises TypeError: If `time_steps` is not a list or array-like of integers.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">            &gt;&gt;&gt; import vvmtools</span>
+<span class="sd">            &gt;&gt;&gt; def cal_TKE_land(t, func_config):</span>
+<span class="sd">            &gt;&gt;&gt;     u = np.squeeze(vvmtool.get_var(&quot;u&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
+<span class="sd">            &gt;&gt;&gt;     v = np.squeeze(vvmtool.get_var(&quot;v&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
+<span class="sd">            &gt;&gt;&gt;     w = np.squeeze(vvmtool.get_var(&quot;w&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
+<span class="sd">            &gt;&gt;&gt;     u_inter = (u[:, :, 1:] + u[:, :, :-1])[1:, 1:] / 2</span>
+<span class="sd">            &gt;&gt;&gt;     v_inter = (v[:, 1:] + v[:, :-1])[1:, :, 1:] / 2</span>
+<span class="sd">            &gt;&gt;&gt;     w_inter = (w[1:] + w[:-1])[:, 1:, 1:] / 2</span>
+<span class="sd">            &gt;&gt;&gt;     TKE = np.mean(u_inter ** 2 + v_inter ** 2 + w_inter ** 2, axis=(1, 2))</span>
+<span class="sd">            &gt;&gt;&gt;     return TKE</span>
+<span class="sd">            &gt;&gt;&gt; my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path=&quot;path/to/case&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; func_config = {&quot;domain_range&quot;: (None, None, None, None, 64, 128)}</span>
+<span class="sd">            &gt;&gt;&gt; TKE_land = my_vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 721, 1)), func_config=func_config, cores=30)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># If time_steps is None, use np.arange(0, 721, 1)</span>
+        <span class="k">if</span> <span class="n">time_steps</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">time_steps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">721</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">time_steps</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+            <span class="n">time_steps</span> <span class="o">=</span> <span class="n">time_steps</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">time_steps</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;time_steps must be a list or tuple of integers.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Create a partial function that pre-binds the config to the func</span>
+        <span class="n">func_with_config</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">func_config</span><span class="o">=</span><span class="n">func_config</span><span class="p">)</span>
+
+        <span class="c1"># Use multiprocessing to fetch variable data in parallel</span>
+        <span class="k">with</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">starmap</span><span class="p">(</span><span class="n">func_with_config</span><span class="p">,</span> <span class="p">[(</span><span class="n">time</span><span class="p">,</span> <span class="p">)</span> <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">time_steps</span><span class="p">])</span>
+        
+        <span class="c1"># Combine and return the results</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="p">))</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aaron Hsieh, Shao-Yu Tseng
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Aaron Hsieh, Shao-Yu Tseng.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

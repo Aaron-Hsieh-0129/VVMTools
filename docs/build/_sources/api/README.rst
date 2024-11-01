@@ -51,10 +51,10 @@ To initialize the ``VVMTools`` class, provide the path to the directory containi
 
 .. code-block:: python
 
-    from vvm_tools import VVMTools
+    import vvmtools
 
     case_path = "/path/to/case/files"
-    vvm_tools = VVMTools(case_path, debug_mode=True)
+    vvm_tools = vvmtools.AnalyzeTools.VVMAnalyzer(case_path, debug_mode=True)
 
 Example Operations
 ------------------
@@ -77,7 +77,7 @@ Example Operations
        domain_range = (0, 10, None, None, 10, 20) # (k1, k2, j1, j2, i1, i2)
        var_data_parallel = vvm_tools.get_var_parallel("temperature", time_steps, domain_range=domain_range, cores=4)
 
-2. **Parallelize Function in Time**
+3. **Parallelize Function in Time**
 
    For faster processing of data over multiple time steps, use ``get_var_parallel``:
 
@@ -99,6 +99,7 @@ Enable debugging by setting ``debug_mode=True`` when initializing ``VVMTools``. 
 
 .. code-block:: python
 
-    vvm_tools = VVMTools(case_path, debug_mode=True)
+    import vvmtools
+    vvm_tools = vvmtools.AnalyzeTools.VVMAnalyzer(case_path, debug_mode=True)
 
 This will display warnings, errors, and status information during execution.

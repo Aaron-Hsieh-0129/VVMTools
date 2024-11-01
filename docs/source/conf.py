@@ -12,9 +12,9 @@ sys.path.insert(0, os.path.abspath('../../vvmtools'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'vvmtools'
-copyright = '2024, Aaron Hsieh'
-author = 'Aaron Hsieh'
-release = 'v0.1.0'
+copyright = '2024, Aaron Hsieh, Shao-Yu Tseng'
+author = 'Aaron Hsieh, Shao-Yu Tseng'
+release = 'v1.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -52,5 +52,5 @@ html_theme = 'sphinx_book_theme'
 html_theme_options = {
     "repository_url": "https://github.com/Aaron-Hsieh-0129/VVMTools",
     "use_repository_button": True,
+    'collapse_navigation': False,
 }
-html_static_path = ['_static']
