@@ -5,6 +5,34 @@ import os, sys
 import logging
 
 class dataPlotters:
+    """
+    The dataPlotters class provides methods for creating and saving visualizations of scientific data
+    across spatial and temporal dimensions.
+
+    This class enables users to configure plotting attributes, including axis data, units, and custom tick
+    locations, while offering utilities for automatically setting up figure paths and managing plot layouts.
+    Custom color maps, label formatting, and title settings can be applied to generated plots for clear 
+    and detailed data presentation.
+
+    :param exp: Experiment name or identifier for labeling the plots.
+    :type exp: str
+    :param figpath: Directory path where generated figures will be saved. If the directory does not exist, 
+                    it is created automatically.
+    :type figpath: str
+    :param domain: Dictionary containing data arrays for plotting dimensions, with keys `'x'`, `'y'`, `'z'`, and `'t'`.
+                   `np.array` values are expected for spatial axes and `np.datetime64` for time (`'t'`).
+    :type domain: dict
+    :param units: Dictionary defining the units of each axis, with keys `'x'`, `'y'`, `'z'`, and `'t'`. 
+                  The values are strings specifying the units displayed on axis labels.
+    :type units: dict
+    :param ticks: Custom tick locations for each axis, with keys `'x'`, `'y'`, `'z'`, and `'t'`. If not provided,
+                  default tick settings are used.
+    :type ticks: dict, optional
+    :param time_fmt: Format for displaying labels on the time axis. Default is `'%H'`, for displaying hours 
+                     in 24-hour format.
+    :type time_fmt: str, optional
+
+    """
     def __init__(self, exp, figpath, domain, units, ticks=None, time_fmt='%H'):
         self.EXP              = exp
         self.FIGPATH          = figpath
