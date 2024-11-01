@@ -141,6 +141,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/plottools.html">PLOTTools Module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html">vvmtools.PLOTTools.dataPlotters.draw_xt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_zt.html">vvmtools.PLOTTools.dataPlotters.draw_zt</a></li>
 </ul>
 </li>
 </ul>
@@ -526,7 +527,7 @@ document.write(`
                         <span class="n">zc_zt_data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">zc_value</span><span class="p">,</span> <span class="n">zt_value</span><span class="p">])</span>
         <span class="n">zc_zt_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zc_zt_data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZC&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zc_zt_data</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zc_zt_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zc_zt_data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 
 <div class="viewcode-block" id="VVMAnalyzer.get_var"><a class="viewcode-back" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var.html#vvmtools.AnalyzeTools.VVMAnalyzer.get_var">[docs]</a>    <span class="k">def</span> <span class="nf">get_var</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
                 <span class="n">var</span><span class="p">,</span> 

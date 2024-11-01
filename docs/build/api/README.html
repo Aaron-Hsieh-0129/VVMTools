@@ -142,6 +142,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="vvmtools/PLOTTools/plottools.html">PLOTTools Module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html">vvmtools.PLOTTools.dataPlotters.draw_xt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_zt.html">vvmtools.PLOTTools.dataPlotters.draw_zt</a></li>
 </ul>
 </li>
 </ul>
@@ -354,12 +355,12 @@ document.write(`
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
-<p>Clone this repository and install the required dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>xarray<span class="w"> </span>numpy
+<p>Install the package from PyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
 </pre></div>
 </div>
-<p>You can also install the package from PyPI:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
+<p>You can also clone this repository and install the required dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>xarray<span class="w"> </span>numpy
 </pre></div>
 </div>
 </section>
@@ -372,7 +373,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vvmtools</span>
 
 <span class="n">case_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/case/files&quot;</span>
-<span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">vvmtools</span><span class="o">.</span><span class="n">AnalyzeTools</span><span class="o">.</span><span class="n">VVMAnalyzer</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mytools</span> <span class="o">=</span> <span class="n">vvmtools</span><span class="o">.</span><span class="n">AnalyzeTools</span><span class="o">.</span><span class="n">VVMAnalyzer</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -381,7 +382,7 @@ document.write(`
 <ol class="arabic">
 <li><p><strong>Extract a Variable</strong></p>
 <p>To retrieve a variable at a specific time step, use the <code class="docutils literal notranslate"><span class="pre">get_var</span></code> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var_data</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var_data</span> <span class="o">=</span> <span class="n">mytools</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -389,7 +390,7 @@ document.write(`
 <p>For faster processing of data over multiple time steps, use <code class="docutils literal notranslate"><span class="pre">get_var_parallel</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time_steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">domain_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># (k1, k2, j1, j2, i1, i2)</span>
-<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">get_var_parallel</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time_steps</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">domain_range</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">mytools</span><span class="o">.</span><span class="n">get_var_parallel</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time_steps</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">domain_range</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -400,7 +401,7 @@ document.write(`
     <span class="k">return</span> <span class="c1"># some results</span>
 
 <span class="n">time_steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">func_time_parallel</span><span class="p">(</span><span class="n">user_define_function</span><span class="p">,</span> <span class="n">time_steps</span><span class="o">=</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">mytools</span><span class="o">.</span><span class="n">func_time_parallel</span><span class="p">(</span><span class="n">user_define_function</span><span class="p">,</span> <span class="n">time_steps</span><span class="o">=</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>

@@ -141,6 +141,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/plottools.html">PLOTTools Module</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html">vvmtools.PLOTTools.dataPlotters.draw_xt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_zt.html">vvmtools.PLOTTools.dataPlotters.draw_zt</a></li>
 </ul>
 </li>
 </ul>
@@ -526,7 +527,7 @@ document.write(`
                         <span class="n">zc_zt_data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">zc_value</span><span class="p">,</span> <span class="n">zt_value</span><span class="p">])</span>
         <span class="n">zc_zt_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zc_zt_data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZC&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zc_zt_data</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zc_zt_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">INIT</span><span class="p">[</span><span class="s2">&quot;ZZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zc_zt_data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 
 <div class="viewcode-block" id="VVMAnalyzer.get_var"><a class="viewcode-back" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var.html#vvmtools.AnalyzeTools.VVMAnalyzer.get_var">[docs]</a>    <span class="k">def</span> <span class="nf">get_var</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
                 <span class="n">var</span><span class="p">,</span> 
@@ -555,6 +556,14 @@ document.write(`
 <span class="sd">        :type axis: int or tuple of ints, optional</span>
 <span class="sd">        :return: The variable data, either as a NumPy array or as xarray data depending on options.</span>
 <span class="sd">        :rtype: numpy.ndarray or xarray.DataArray</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">            &gt;&gt;&gt; import vvmtools</span>
+<span class="sd">            &gt;&gt;&gt; my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path=&quot;path/to/case&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; u = my_vvmtool.get_var(&quot;u&quot;, 0, numpy=True)</span>
+<span class="sd">            &gt;&gt;&gt; u_mean = my_vvmtool.get_var(&quot;u&quot;, 0, numpy=True, compute_mean=True)</span>
+<span class="sd">            &gt;&gt;&gt; u_mean_along_x = my_vvmtool.get_var(&quot;u&quot;, 0, numpy=True, compute_mean=True, axis=1)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="c1"># Find the file associated with the given variable and time</span>
@@ -668,6 +677,15 @@ document.write(`
 <span class="sd">        :return: The retrieved variable data across time steps.</span>
 <span class="sd">        :rtype: numpy.ndarray</span>
 <span class="sd">        :raises TypeError: If `time_steps` is not a list or tuple of integers.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">            &gt;&gt;&gt; import vvmtools</span>
+<span class="sd">            &gt;&gt;&gt; my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path=&quot;path/to/case&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; domain_range = (None, None, None, None, 64, 128)</span>
+<span class="sd">            &gt;&gt;&gt; time_steps = np.arange(0, 721, 1)</span>
+<span class="sd">            &gt;&gt;&gt; u_tzyx = my_vvmtool.get_var_parallel(&quot;u&quot;, time_steps=time_steps, domain_range=domain_range, cores=20)</span>
+<span class="sd">            &gt;&gt;&gt; u_tz_xymean_subdomain = my_vvmtool.get_var_parallel(&quot;u&quot;, time_steps=time_steps, domain_range=domain_range, compute_mean=True, axis=(1,2), cores=20)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Range_tuple_check</span><span class="p">(</span><span class="n">domain_range</span><span class="p">)</span>
 
@@ -710,6 +728,7 @@ document.write(`
 
 <span class="sd">        Example:</span>
 <span class="sd">            &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">            &gt;&gt;&gt; import vvmtools</span>
 <span class="sd">            &gt;&gt;&gt; def cal_TKE_land(t, func_config):</span>
 <span class="sd">            &gt;&gt;&gt;     u = np.squeeze(vvmtool.get_var(&quot;u&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
 <span class="sd">            &gt;&gt;&gt;     v = np.squeeze(vvmtool.get_var(&quot;v&quot;, t, numpy=True, domain_range=func_config[&quot;domain_range&quot;]))</span>
@@ -719,8 +738,9 @@ document.write(`
 <span class="sd">            &gt;&gt;&gt;     w_inter = (w[1:] + w[:-1])[:, 1:, 1:] / 2</span>
 <span class="sd">            &gt;&gt;&gt;     TKE = np.mean(u_inter ** 2 + v_inter ** 2 + w_inter ** 2, axis=(1, 2))</span>
 <span class="sd">            &gt;&gt;&gt;     return TKE</span>
+<span class="sd">            &gt;&gt;&gt; my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path=&quot;path/to/case&quot;)</span>
 <span class="sd">            &gt;&gt;&gt; func_config = {&quot;domain_range&quot;: (None, None, None, None, 64, 128)}</span>
-<span class="sd">            &gt;&gt;&gt; TKE_land = vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 721, 1)), func_config=func_config, cores=30)</span>
+<span class="sd">            &gt;&gt;&gt; TKE_land = my_vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 721, 1)), func_config=func_config, cores=30)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># If time_steps is None, use np.arange(0, 721, 1)</span>

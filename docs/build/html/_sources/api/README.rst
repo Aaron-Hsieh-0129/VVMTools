@@ -26,19 +26,19 @@ Requirements
 Installation
 ------------
 
-Clone this repository and install the required dependencies:
+Install the package from PyPI:
+
+.. code-block:: bash
+
+    pip install git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
+
+
+You can also clone this repository and install the required dependencies:
 
 .. code-block:: bash
 
     pip install xarray numpy
 
-
-
-You can also install the package from PyPI:
-
-.. code-block:: bash
-
-    pip install git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
 
 
 Usage

@@ -261,7 +261,7 @@ class VVMAnalyzer:
                         zc_zt_data.append([zc_value, zt_value])
         zc_zt_data = np.array(zc_zt_data)
         self.INIT["ZC"] = np.array(zc_zt_data)[:-1,0]
-        self.INIT["ZZ"] = zc_zt_data[1:,1]
+        self.INIT["ZZ"] = zc_zt_data[:-1,1]
 
     def get_var(self, 
                 var, 
