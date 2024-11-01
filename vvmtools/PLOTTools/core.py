@@ -32,6 +32,26 @@ class dataPlotters:
                      in 24-hour format.
     :type time_fmt: str, optional
 
+    
+    **Example Usage:**
+
+
+    >>> import numpy as np
+    >>> from vvmtools.PLOTTools import dataPlotters
+    >>> 
+    >>> # prepare expname and data coordinate
+    >>> expname  = 'pbl_control'
+    >>> nx = 128; x = np.arange(nx)*0.2
+    >>> ny = 128; y = np.arange(ny)*0.2
+    >>> nz = 50;  z = np.arange(nz)*0.04
+    >>> nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
+    >>> 
+    >>> # create dataPlotter class
+    >>> figpath           = './fig/'
+    >>> data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
+    >>> data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
+    >>> dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+
     """
     def __init__(self, exp, figpath, domain, units, ticks=None, time_fmt='%H'):
         self.EXP              = exp
@@ -141,6 +161,95 @@ class dataPlotters:
                       ylim = None,\
                       figname='',\
                ):
+
+        """
+        Generate an x-time (xt) plot of 2D data across spatial (x or y) and temporal (t) dimensions.
+
+        :param data: 2D array (t,x) of data values to be plotted, with dimensions corresponding to the time and 
+                     `x_axis_dim` axes in `DOMAIN`.
+        :type data: numpy.ndarray
+        :param levels: Discrete boundaries for color intervals, used for normalizing the color mapping of data values.
+        :type levels: list or numpy.ndarray
+        :param extend: Specifies color bar extension behavior at the boundaries; can be one of `'both'`, 
+                       `'min'`, or `'max'`.
+        :type extend: str
+        :param x_axis_dim: The spatial dimension to plot on the x-axis, `'x'` or `'y'` (default is `'x'`).
+        :type x_axis_dim: str, optional
+        :param cmap_name: The name of the colormap to use (default is `'bwr'` for blue-white-red) same as matplotlib.
+        :type cmap_name: str, optional
+        :param title_left: Title text to display on the left side of the plot.
+        :type title_left: str, optional
+        :param title_right: Title text to display on the right side of the plot. The `'EXPNAME'` will add in second line.
+        :type title_right: str, optional
+        :param xlim: Tuple specifying the minimum and maximum limits for the x-axis. If None, the limits are derived 
+                     from `DOMAIN`.
+        :type xlim: tuple, optional
+        :param ylim: Tuple specifying the minimum and maximum limits for the y-axis (time). If None, the limits are derived 
+                     from `DOMAIN`.
+        :type ylim: tuple, optional
+        :param figname: Filename to save the plot. If not provided, the plot is not saved.
+        :type figname: str, optional
+
+        :return: The generated figure (`fig`), main axis (`ax`), and color bar axis (`cax`) objects.
+        :rtype: tuple(matplotlib.figure.Figure, matplotlib.axes.Axes, matplotlib.axes.Axes)
+
+
+        **Example Usage:**
+
+
+        Initialize the `dataPlotters` Classes
+
+        >>> import numpy as np
+        >>> from vvmtools.PLOTTools import dataPlotters
+        >>> import matplotlib.pyplot as plt
+        >>>
+        >>> # prepare expname and data coordinate
+        >>> expname  = 'pbl_control'
+        >>> nx = 128; x = np.arange(nx)*0.2
+        >>> ny = 128; y = np.arange(ny)*0.2
+        >>> nz = 50;  z = np.arange(nz)*0.04
+        >>> nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
+        >>>
+        >>> # create dataPlotter class
+        >>> figpath           = './fig/'
+        >>> data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
+        >>> data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
+        >>> dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+
+        Create the 2d data.
+
+        >>> data_xt2d  = np.random.normal(0, 0.1, size=(nt,nx))
+
+        draw x-t diagram.
+
+        >>> fig, ax, cax = dplot.draw_xt(data = data_xt2d,
+        >>>                                 levels = np.arange(-1,1.001,0.1),
+        >>>                                 extend = 'both',
+        >>>                                 title_left  = 'draw_xt hov example',
+        >>>                                 title_right = f'right_land_type',
+        >>>                                 figname     = 'test_hov.png',
+        >>>                                )
+        >>> plt.show()
+
+        draw x-t diagram with optional configuration.
+
+        >>> fig, ax, cax = dplot.draw_xt(data = data_xt2d,
+        >>>                                 levels = np.arange(-1,1.001,0.1), 
+        >>>                                 extend = 'both',
+        >>>                                 x_axis_dim  = 'y',
+        >>>                                 cmap_name   = 'Spectral',
+        >>>                                 xlim        = (6.4, 19.2),
+        >>>                                 ylim        = (np.datetime64('2024-01-01 09:00:00'),
+        >>>                                                np.datetime64('2024-01-01 17:00:00')
+        >>>                                               ),
+        >>>                                 title_left  = 'draw_xt (optional)',
+        >>>                                 title_right = f'right_land_type',
+        >>>                                 figname     = ''
+        >>>                                )
+        >>> plt.show()
+
+        """
+
         xlim, xticks = self._determine_ticks_and_lim(ax_name=x_axis_dim, ax_lim=xlim)
         ylim, yticks = self._determine_ticks_and_lim(ax_name='t', ax_lim=ylim)
 
