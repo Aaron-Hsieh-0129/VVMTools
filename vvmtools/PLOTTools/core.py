@@ -32,25 +32,25 @@ class dataPlotters:
                      in 24-hour format.
     :type time_fmt: str, optional
 
-    
-    **Example:**
+    Examples
+    --------
+    ::
 
-
-    >>> import numpy as np
-    >>> from vvmtools.PLOTTools import dataPlotters
-    >>> 
-    >>> # prepare expname and data coordinate
-    >>> expname  = 'pbl_control'
-    >>> nx = 128; x = np.arange(nx)*0.2
-    >>> ny = 128; y = np.arange(ny)*0.2
-    >>> nz = 50;  z = np.arange(nz)*0.04
-    >>> nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
-    >>> 
-    >>> # create dataPlotter class
-    >>> figpath           = './fig/'
-    >>> data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
-    >>> data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
-    >>> dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+        import numpy as np
+        from vvmtools.PLOTTools import dataPlotters
+        
+        # prepare expname and data coordinate
+        expname  = 'pbl_control'
+        nx = 128; x = np.arange(nx)*0.2
+        ny = 128; y = np.arange(ny)*0.2
+        nz = 50;  z = np.arange(nz)*0.04
+        nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
+        
+        # create dataPlotter class
+        figpath           = './fig/'
+        data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
+        data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
+        dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
 
     """
     def __init__(self, exp, figpath, domain, units, ticks=None, time_fmt='%H'):
@@ -194,59 +194,64 @@ class dataPlotters:
         :rtype: tuple(matplotlib.figure.Figure, matplotlib.axes.Axes, matplotlib.axes.Axes)
 
 
-        **Example Usage:**
-
-
+        Examples
+        --------
         Initialize the `dataPlotters` Classes
+        ::
 
-        >>> import numpy as np
-        >>> from vvmtools.PLOTTools import dataPlotters
-        >>> import matplotlib.pyplot as plt
-        >>>
-        >>> # prepare expname and data coordinate
-        >>> expname  = 'pbl_control'
-        >>> nx = 128; x = np.arange(nx)*0.2
-        >>> ny = 128; y = np.arange(ny)*0.2
-        >>> nz = 50;  z = np.arange(nz)*0.04
-        >>> nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
-        >>>
-        >>> # create dataPlotter class
-        >>> figpath           = './fig/'
-        >>> data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
-        >>> data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
-        >>> dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+            import numpy as np
+            from vvmtools.PLOTTools import dataPlotters
+            import matplotlib.pyplot as plt
+           
+            # prepare expname and data coordinate
+            expname  = 'pbl_control'
+            nx = 128; x = np.arange(nx)*0.2
+            ny = 128; y = np.arange(ny)*0.2
+            nz = 50;  z = np.arange(nz)*0.04
+            nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
+           
+            # create dataPlotter class
+            figpath           = './fig/'
+            data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
+            data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
+            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
 
         Create the 2d data.
+        ::
 
-        >>> data_xt2d  = np.random.normal(0, 0.1, size=(nt,nx))
+            np.random.seed(0)
+            data_xt2d  = np.random.normal(0, 0.1, size=(nt,nx))
 
         draw x-t diagram.
+        ::
 
-        >>> fig, ax, cax = dplot.draw_xt(data = data_xt2d,
-        >>>                                 levels = np.arange(-1,1.001,0.1),
-        >>>                                 extend = 'both',
-        >>>                                 title_left  = 'draw_xt hov example',
-        >>>                                 title_right = f'right_land_type',
-        >>>                                 figname     = 'test_hov.png',
-        >>>                                )
-        >>> plt.show()
+            fig, ax, cax = dplot.draw_xt(data = data_xt2d,
+                                            levels = np.arange(-1,1.001,0.1),
+                                            extend = 'both',
+                                            title_left  = 'draw_xt hov example',
+                                            title_right = f'right_land_type',
+                                            figname     = 'test_hov.png',
+                                           )
+            plt.show()
+
 
         draw x-t diagram with optional configuration.
+        ::
 
-        >>> fig, ax, cax = dplot.draw_xt(data = data_xt2d,
-        >>>                                 levels = np.arange(-1,1.001,0.1), 
-        >>>                                 extend = 'both',
-        >>>                                 x_axis_dim  = 'y',
-        >>>                                 cmap_name   = 'Spectral',
-        >>>                                 xlim        = (6.4, 19.2),
-        >>>                                 ylim        = (np.datetime64('2024-01-01 09:00:00'),
-        >>>                                                np.datetime64('2024-01-01 17:00:00')
-        >>>                                               ),
-        >>>                                 title_left  = 'draw_xt (optional)',
-        >>>                                 title_right = f'right_land_type',
-        >>>                                 figname     = ''
-        >>>                                )
-        >>> plt.show()
+            fig, ax, cax = dplot.draw_xt(data = data_xt2d,
+                                            levels = np.arange(-1,1.001,0.1), 
+                                            extend = 'both',
+                                            x_axis_dim  = 'y',
+                                            cmap_name   = 'Spectral',
+                                            xlim        = (6.4, 19.2),
+                                            ylim        = (np.datetime64('2024-01-01 09:00:00'),
+                                                           np.datetime64('2024-01-01 17:00:00')
+                                                          ),
+                                            title_left  = 'draw_xt (optional)',
+                                            title_right = f'right_land_type',
+                                            figname     = ''
+                                           )
+            plt.show()
 
         """
 
@@ -289,7 +294,7 @@ class dataPlotters:
                ):
         """
         This function creates a z-t plot for a specified variable over time and height dimensions. and draw a series pbl height 1-D datasets.
-    
+
         :param data: 2D array (nz,nt) of data values to plot, with dimensions corresponding to time ('t') and height ('z') axes.
         :type data: np.ndarray
         :param levels: Sequence of boundaries to use for color normalization.
@@ -313,68 +318,73 @@ class dataPlotters:
     
         :return: The figure, main axis, and colorbar axis of the created plot.
         :rtype: tuple (matplotlib.figure.Figure, matplotlib.axes._axes.Axes, matplotlib.colorbar.Colorbar)
-    
-        **Example:**
 
+        Examples
+        --------
         Initialize the `dataPlotters` Classes
+        ::
 
-        >>> import numpy as np
-        >>> from vvmtools.PLOTTools import dataPlotters
-        >>> import matplotlib.pyplot as plt
-        >>>
-        >>> # prepare expname and data coordinate
-        >>> expname  = 'pbl_control'
-        >>> nx = 128; x = np.arange(nx)*0.2
-        >>> ny = 128; y = np.arange(ny)*0.2
-        >>> nz = 50;  z = np.arange(nz)*0.04
-        >>> nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
-        >>>
-        >>> # create dataPlotter class
-        >>> figpath           = './fig/'
-        >>> data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
-        >>> data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
-        >>> dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+            import numpy as np
+            from vvmtools.PLOTTools import dataPlotters
+            import matplotlib.pyplot as plt
+            
+            # prepare expname and data coordinate
+            expname  = 'pbl_control'
+            nx = 128; x = np.arange(nx)*0.2
+            ny = 128; y = np.arange(ny)*0.2
+            nz = 50;  z = np.arange(nz)*0.04
+            nt = 721; t = np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')
+            
+            # create dataPlotter class
+            figpath           = './fig/'
+            data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
+            data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
+            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
 
         Create the 2d data.
+        ::
 
-        >>> data_zt2d  = np.random.normal(0, 0.1, size=(nz,nt))
-        >>> line1_1d = np.sin( np.linspace(0, 2*np.pi, nt) ) +1
-        >>> line2_1d = np.cos( np.linspace(0, 2*np.pi, nt) ) +1
+            np.random.seed(0)
+            data_zt2d  = np.random.normal(0, 0.1, size=(nz,nt))
+            line1_1d = np.sin( np.linspace(0, 2*np.pi, nt) ) +1
+            line2_1d = np.cos( np.linspace(0, 2*np.pi, nt) ) +1
 
         draw z-t diagram.
+        ::
 
-        >>> fig, ax, cax = dplot.draw_zt(data = data_zt2d, 
-        >>>                              levels = np.arange(-1,1.001,0.1), 
-        >>>                              extend = 'both', 
-        >>>                              pblh_dicts={'line1': line1_1d,
-        >>>                                          'line2': line2_1d,
-        >>>                                         },
-        >>>                              title_left  = 'draw_zt pblh example', 
-        >>>                              title_right = f'right_land_type', 
-        >>>                              figname     = 'test_pbl.png',
-        >>>                       )
-        >>>
-        >>> plt.show()
+            fig, ax, cax = dplot.draw_zt(data = data_zt2d, 
+                                         levels = np.arange(-1,1.001,0.1), 
+                                         extend = 'both', 
+                                         pblh_dicts={'line1': line1_1d,
+                                                     'line2': line2_1d,
+                                                    },
+                                         title_left  = 'draw_zt pblh example', 
+                                         title_right = f'right_land_type', 
+                                         figname     = 'test_pbl.png',
+                                  )
+           
+            plt.show()
 
         draw z-t diagram with optional configuration.
+        ::
 
-        >>> fig, ax, cax = dplot.draw_zt(data = data_zt2d, 
-        >>>                              levels = np.arange(-1,1.001,0.1), 
-        >>>                              extend = 'both', 
-        >>>                              pblh_dicts={'line1': line1_1d,
-        >>>                                          'line2': line2_1d,
-        >>>                                         },
-        >>>                              cmap_name   = 'Spectral',
-        >>>                              xlim        = (np.datetime64('2024-01-01 09:00:00'),
-        >>>                                             np.datetime64('2024-01-01 17:00:00')
-        >>>                                            ),
-        >>>                              ylim        = (0, 1),
-        >>>                              title_left  = 'draw_zt (optional)', 
-        >>>                              title_right = f'right_land_type', 
-        >>>                              figname     = '',
-        >>>                       )
-        >>>
-        >>> plt.show()
+            fig, ax, cax = dplot.draw_zt(data = data_zt2d, 
+                                         levels = np.arange(-1,1.001,0.1), 
+                                         extend = 'both', 
+                                         pblh_dicts={'line1': line1_1d,
+                                                     'line2': line2_1d,
+                                                    },
+                                         cmap_name   = 'Spectral',
+                                         xlim        = (np.datetime64('2024-01-01 09:00:00'),
+                                                        np.datetime64('2024-01-01 17:00:00')
+                                                       ),
+                                         ylim        = (0, 1),
+                                         title_left  = 'draw_zt (optional)', 
+                                         title_right = f'right_land_type', 
+                                         figname     = '',
+                                  )
+           
+            plt.show()
 
         """
 
