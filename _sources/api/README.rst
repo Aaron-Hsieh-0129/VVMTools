@@ -26,19 +26,19 @@ Requirements
 Installation
 ------------
 
-Clone this repository and install the required dependencies:
+Install the package from PyPI:
+
+.. code-block:: bash
+
+    pip install git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
+
+
+You can also clone this repository and install the required dependencies:
 
 .. code-block:: bash
 
     pip install xarray numpy
 
-
-
-You can also install the package from PyPI:
-
-.. code-block:: bash
-
-    pip install git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
 
 
 Usage
@@ -51,10 +51,10 @@ To initialize the ``VVMTools`` class, provide the path to the directory containi
 
 .. code-block:: python
 
-    from vvm_tools import VVMTools
+    import vvmtools
 
     case_path = "/path/to/case/files"
-    vvm_tools = VVMTools(case_path, debug_mode=True)
+    mytools = vvmtools.AnalyzeTools.VVMAnalyzer(case_path, debug_mode=True)
 
 Example Operations
 ------------------
@@ -65,7 +65,7 @@ Example Operations
 
    .. code-block:: python
 
-       var_data = vvm_tools.get_var("temperature", time=0, numpy=True)
+       var_data = mytools.get_var("temperature", time=0, numpy=True)
 
 2. **Parallel Data Extraction**
 
@@ -75,9 +75,9 @@ Example Operations
 
        time_steps = range(0, 10)
        domain_range = (0, 10, None, None, 10, 20) # (k1, k2, j1, j2, i1, i2)
-       var_data_parallel = vvm_tools.get_var_parallel("temperature", time_steps, domain_range=domain_range, cores=4)
+       var_data_parallel = mytools.get_var_parallel("temperature", time_steps, domain_range=domain_range, cores=4)
 
-2. **Parallelize Function in Time**
+3. **Parallelize Function in Time**
 
    For faster processing of data over multiple time steps, use ``get_var_parallel``:
 
@@ -88,7 +88,7 @@ Example Operations
            return # some results
 
        time_steps = range(0, 10)
-       var_data_parallel = vvm_tools.func_time_parallel(user_define_function, time_steps=time_steps, cores=4)
+       var_data_parallel = mytools.func_time_parallel(user_define_function, time_steps=time_steps, cores=4)
 
 
 
@@ -99,6 +99,7 @@ Enable debugging by setting ``debug_mode=True`` when initializing ``VVMTools``. 
 
 .. code-block:: python
 
-    vvm_tools = VVMTools(case_path, debug_mode=True)
+    import vvmtools
+    vvm_tools = vvmtools.AnalyzeTools.VVMAnalyzer(case_path, debug_mode=True)
 
 This will display warnings, errors, and status information during execution.

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>VVMTools &#8212; vvmtools v0.1.0 documentation</title>
+    <title>VVMTools &#8212; vvmtools v1.0.0 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=d47532a6"></script>
+    <script src="../_static/documentation_options.js?v=8cd78353"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">vvmtools v0.1.0 documentation</p>
+    <p class="title logo__title">vvmtools v1.0.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -139,10 +139,18 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="vvmtools/vvmtools.html">VVMTools Class</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="vvmtools/generated/vvmtools.VVMTools.VVMTools.get_var.html">vvmtools.VVMTools.VVMTools.get_var</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vvmtools/generated/vvmtools.VVMTools.VVMTools.get_var_parallel.html">vvmtools.VVMTools.VVMTools.get_var_parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="vvmtools/generated/vvmtools.VVMTools.VVMTools.func_time_parallel.html">vvmtools.VVMTools.VVMTools.func_time_parallel</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="vvmtools/vvmtools.html">vvmtools Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vvmtools/AnalyzeTools/analyzetools.html">AnalyzeTools Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vvmtools/PLOTTools/plottools.html">PLOTTools Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html">vvmtools.PLOTTools.dataPlotters.draw_xt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_zt.html">vvmtools.PLOTTools.dataPlotters.draw_zt</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 </ul>
@@ -345,12 +353,12 @@
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<p>Clone this repository and install the required dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>xarray<span class="w"> </span>numpy
+<p>Install the package from PyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
 </pre></div>
 </div>
-<p>You can also install the package from PyPI:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/Aaron-Hsieh-0129/VVMTools.git
+<p>You can also clone this repository and install the required dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>xarray<span class="w"> </span>numpy
 </pre></div>
 </div>
 </section>
@@ -360,10 +368,10 @@
 <section id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Link to this heading">#</a></h2>
 <p>To initialize the <code class="docutils literal notranslate"><span class="pre">VVMTools</span></code> class, provide the path to the directory containing the case files. Optionally, enable <code class="docutils literal notranslate"><span class="pre">debug_mode</span></code> to log more detailed information:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vvm_tools</span> <span class="kn">import</span> <span class="n">VVMTools</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vvmtools</span>
 
 <span class="n">case_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/case/files&quot;</span>
-<span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">VVMTools</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mytools</span> <span class="o">=</span> <span class="n">vvmtools</span><span class="o">.</span><span class="n">AnalyzeTools</span><span class="o">.</span><span class="n">VVMAnalyzer</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -372,7 +380,7 @@
 <ol class="arabic">
 <li><p><strong>Extract a Variable</strong></p>
 <p>To retrieve a variable at a specific time step, use the <code class="docutils literal notranslate"><span class="pre">get_var</span></code> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var_data</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var_data</span> <span class="o">=</span> <span class="n">mytools</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -380,12 +388,10 @@
 <p>For faster processing of data over multiple time steps, use <code class="docutils literal notranslate"><span class="pre">get_var_parallel</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">time_steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">domain_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># (k1, k2, j1, j2, i1, i2)</span>
-<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">get_var_parallel</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time_steps</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">domain_range</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">mytools</span><span class="o">.</span><span class="n">get_var_parallel</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="n">time_steps</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">domain_range</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
-</ol>
-<ol class="arabic" start="2">
 <li><p><strong>Parallelize Function in Time</strong></p>
 <p>For faster processing of data over multiple time steps, use <code class="docutils literal notranslate"><span class="pre">get_var_parallel</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_define_function</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
@@ -393,7 +399,7 @@
     <span class="k">return</span> <span class="c1"># some results</span>
 
 <span class="n">time_steps</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">vvm_tools</span><span class="o">.</span><span class="n">func_time_parallel</span><span class="p">(</span><span class="n">user_define_function</span><span class="p">,</span> <span class="n">time_steps</span><span class="o">=</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">var_data_parallel</span> <span class="o">=</span> <span class="n">mytools</span><span class="o">.</span><span class="n">func_time_parallel</span><span class="p">(</span><span class="n">user_define_function</span><span class="p">,</span> <span class="n">time_steps</span><span class="o">=</span><span class="n">time_steps</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -402,7 +408,8 @@
 <section id="debugging">
 <h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h2>
 <p>Enable debugging by setting <code class="docutils literal notranslate"><span class="pre">debug_mode=True</span></code> when initializing <code class="docutils literal notranslate"><span class="pre">VVMTools</span></code>. This will provide detailed logging to help trace errors and issues.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">VVMTools</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vvmtools</span>
+<span class="n">vvm_tools</span> <span class="o">=</span> <span class="n">vvmtools</span><span class="o">.</span><span class="n">AnalyzeTools</span><span class="o">.</span><span class="n">VVMAnalyzer</span><span class="p">(</span><span class="n">case_path</span><span class="p">,</span> <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will display warnings, errors, and status information during execution.</p>
@@ -458,7 +465,7 @@
   <div class="footer-item">
     
 <p class="component-author">
-By Aaron Hsieh
+By Aaron Hsieh, Shao-Yu Tseng
 </p>
 
   </div>
@@ -468,7 +475,7 @@ By Aaron Hsieh
 
   <p class="copyright">
     
-      © Copyright 2024, Aaron Hsieh.
+      © Copyright 2024, Aaron Hsieh, Shao-Yu Tseng.
       <br/>
     
   </p>
