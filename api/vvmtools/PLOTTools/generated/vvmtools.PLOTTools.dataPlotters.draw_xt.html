@@ -325,7 +325,95 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="vvmtools.PLOTTools.dataPlotters.draw_xt">
 <span class="sig-prename descclassname"><span class="pre">dataPlotters.</span></span><span class="sig-name descname"><span class="pre">draw_xt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">levels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bwr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title_right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/vvmtools/PLOTTools/core.html#dataPlotters.draw_xt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vvmtools.PLOTTools.dataPlotters.draw_xt" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>This function creates a x-t plot for a 2D data over spatial (x or y) and temporal (t) dimensions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>numpy.ndarray</em>) – 2D array (t,x) of data values to be plotted, with dimensions corresponding to the time and
+<cite>x_axis_dim</cite> axes in <cite>DOMAIN</cite>.</p></li>
+<li><p><strong>levels</strong> (<em>list</em><em> or </em><em>numpy.ndarray</em>) – Discrete boundaries for color intervals, used for normalizing the color mapping of data values.</p></li>
+<li><p><strong>extend</strong> (<em>str</em>) – Specifies color bar extension behavior at the boundaries; can be one of <cite>‘both’</cite>,
+<cite>‘min’</cite>, or <cite>‘max’</cite>.</p></li>
+<li><p><strong>x_axis_dim</strong> (<em>str</em><em>, </em><em>optional</em>) – The spatial dimension to plot on the x-axis, <cite>‘x’</cite> or <cite>‘y’</cite> (default is <cite>‘x’</cite>).</p></li>
+<li><p><strong>cmap_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the colormap to use (default is <cite>‘bwr’</cite> for blue-white-red) same as matplotlib.</p></li>
+<li><p><strong>title_left</strong> (<em>str</em><em>, </em><em>optional</em>) – Title text to display on the left side of the plot.</p></li>
+<li><p><strong>title_right</strong> (<em>str</em><em>, </em><em>optional</em>) – Title text to display on the right side of the plot. The <cite>‘EXPNAME’</cite> will add in second line.</p></li>
+<li><p><strong>xlim</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Tuple specifying the minimum and maximum limits for the x-axis. If None, the limits are derived
+from <cite>DOMAIN</cite>.</p></li>
+<li><p><strong>ylim</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Tuple specifying the minimum and maximum limits for the y-axis (time). If None, the limits are derived
+from <cite>DOMAIN</cite>.</p></li>
+<li><p><strong>figname</strong> (<em>str</em><em>, </em><em>optional</em>) – Filename to save the plot. If not provided, the plot is not saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated figure (<cite>fig</cite>), main axis (<cite>ax</cite>), and color bar axis (<cite>cax</cite>) objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(matplotlib.figure.Figure, matplotlib.axes.Axes, matplotlib.axes.Axes)</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Initialize the <cite>dataPlotters</cite> Classes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">vvmtools.PLOTTools</span> <span class="kn">import</span> <span class="n">dataPlotters</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># prepare expname and data coordinate</span>
+<span class="n">expname</span>  <span class="o">=</span> <span class="s1">&#39;pbl_control&#39;</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">128</span><span class="p">;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nx</span><span class="p">)</span><span class="o">*</span><span class="mf">0.2</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="mi">128</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ny</span><span class="p">)</span><span class="o">*</span><span class="mf">0.2</span>
+<span class="n">nz</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>  <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nz</span><span class="p">)</span><span class="o">*</span><span class="mf">0.04</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="mi">721</span><span class="p">;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2024-01-01 05:00:00&#39;</span><span class="p">)</span>
+
+<span class="c1"># create dataPlotter class</span>
+<span class="n">figpath</span>           <span class="o">=</span> <span class="s1">&#39;./fig/&#39;</span>
+<span class="n">data_domain</span>       <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="n">z</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span><span class="n">t</span><span class="p">}</span>
+<span class="n">data_domain_units</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="s1">&#39;km&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="s1">&#39;km&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span><span class="s1">&#39;km&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span><span class="s1">&#39;LocalTime&#39;</span><span class="p">}</span>
+<span class="n">dplot</span> <span class="o">=</span> <span class="n">dataPlotters</span><span class="p">(</span><span class="n">expname</span><span class="p">,</span> <span class="n">figpath</span><span class="p">,</span> <span class="n">data_domain</span><span class="p">,</span> <span class="n">data_domain_units</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create the 2d data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data_xt2d</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">nx</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>draw x-t diagram.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cax</span> <span class="o">=</span> <span class="n">dplot</span><span class="o">.</span><span class="n">draw_xt</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_xt2d</span><span class="p">,</span>
+                                <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span>
+                                <span class="n">extend</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span>
+                                <span class="n">title_left</span>  <span class="o">=</span> <span class="s1">&#39;draw_xt hov example&#39;</span><span class="p">,</span>
+                                <span class="n">title_right</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;right_land_type&#39;</span><span class="p">,</span>
+                                <span class="n">figname</span>     <span class="o">=</span> <span class="s1">&#39;test_hov.png&#39;</span><span class="p">,</span>
+                               <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<a class="with-border reference internal image-reference" href="../../../../_images/dataPlotter_draw_xt.png"><img alt="../../../../_images/dataPlotter_draw_xt.png" class="with-border" src="../../../../_images/dataPlotter_draw_xt.png" style="width: 480.0px; height: 600.0px;" />
+</a>
+</figure>
+<p>draw x-t diagram with optional configuration.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cax</span> <span class="o">=</span> <span class="n">dplot</span><span class="o">.</span><span class="n">draw_xt</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data_xt2d</span><span class="p">,</span>
+                                <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span>
+                                <span class="n">extend</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span>
+                                <span class="n">x_axis_dim</span>  <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+                                <span class="n">cmap_name</span>   <span class="o">=</span> <span class="s1">&#39;Spectral&#39;</span><span class="p">,</span>
+                                <span class="n">xlim</span>        <span class="o">=</span> <span class="p">(</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">19.2</span><span class="p">),</span>
+                                <span class="n">ylim</span>        <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2024-01-01 09:00:00&#39;</span><span class="p">),</span>
+                                               <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2024-01-01 17:00:00&#39;</span><span class="p">)</span>
+                                              <span class="p">),</span>
+                                <span class="n">title_left</span>  <span class="o">=</span> <span class="s1">&#39;draw_xt (optional)&#39;</span><span class="p">,</span>
+                                <span class="n">title_right</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;right_land_type&#39;</span><span class="p">,</span>
+                                <span class="n">figname</span>     <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                               <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<a class="with-border reference internal image-reference" href="../../../../_images/dataPlotter_draw_xt_optional.png"><img alt="../../../../_images/dataPlotter_draw_xt_optional.png" class="with-border" src="../../../../_images/dataPlotter_draw_xt_optional.png" style="width: 480.0px; height: 600.0px;" />
+</a>
+</figure>
+</dd></dl>
 
 </section>
 

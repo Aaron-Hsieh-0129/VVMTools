@@ -271,6 +271,54 @@
 <div class="viewcode-block" id="dataPlotters">
 <a class="viewcode-back" href="../../../api/vvmtools/PLOTTools/plottools.html#vvmtools.PLOTTools.dataPlotters">[docs]</a>
 <span class="k">class</span> <span class="nc">dataPlotters</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The dataPlotters class provides methods for creating and saving visualizations of scientific data</span>
+<span class="sd">    across spatial and temporal dimensions.</span>
+
+<span class="sd">    This class enables users to configure plotting attributes, including axis data, units, and custom tick</span>
+<span class="sd">    locations, while offering utilities for automatically setting up figure paths and managing plot layouts.</span>
+<span class="sd">    Custom color maps, label formatting, and title settings can be applied to generated plots for clear </span>
+<span class="sd">    and detailed data presentation.</span>
+
+<span class="sd">    :param exp: Experiment name or identifier for labeling the plots.</span>
+<span class="sd">    :type exp: str</span>
+<span class="sd">    :param figpath: Directory path where generated figures will be saved. If the directory does not exist, </span>
+<span class="sd">                    it is created automatically.</span>
+<span class="sd">    :type figpath: str</span>
+<span class="sd">    :param domain: Dictionary containing data arrays for plotting dimensions, with keys `&#39;x&#39;`, `&#39;y&#39;`, `&#39;z&#39;`, and `&#39;t&#39;`.</span>
+<span class="sd">                   `np.array` values are expected for spatial axes and `np.datetime64` for time (`&#39;t&#39;`).</span>
+<span class="sd">    :type domain: dict</span>
+<span class="sd">    :param units: Dictionary defining the units of each axis, with keys `&#39;x&#39;`, `&#39;y&#39;`, `&#39;z&#39;`, and `&#39;t&#39;`. </span>
+<span class="sd">                  The values are strings specifying the units displayed on axis labels.</span>
+<span class="sd">    :type units: dict</span>
+<span class="sd">    :param ticks: Custom tick locations for each axis, with keys `&#39;x&#39;`, `&#39;y&#39;`, `&#39;z&#39;`, and `&#39;t&#39;`. If not provided,</span>
+<span class="sd">                  default tick settings are used.</span>
+<span class="sd">    :type ticks: dict, optional</span>
+<span class="sd">    :param time_fmt: Format for displaying labels on the time axis. Default is `&#39;%H&#39;`, for displaying hours </span>
+<span class="sd">                     in 24-hour format.</span>
+<span class="sd">    :type time_fmt: str, optional</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        import numpy as np</span>
+<span class="sd">        from vvmtools.PLOTTools import dataPlotters</span>
+<span class="sd">        </span>
+<span class="sd">        # prepare expname and data coordinate</span>
+<span class="sd">        expname  = &#39;pbl_control&#39;</span>
+<span class="sd">        nx = 128; x = np.arange(nx)*0.2</span>
+<span class="sd">        ny = 128; y = np.arange(ny)*0.2</span>
+<span class="sd">        nz = 50;  z = np.arange(nz)*0.04</span>
+<span class="sd">        nt = 721; t = np.arange(nt)*np.timedelta64(2,&#39;m&#39;)+np.datetime64(&#39;2024-01-01 05:00:00&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        # create dataPlotter class</span>
+<span class="sd">        figpath           = &#39;./fig/&#39;</span>
+<span class="sd">        data_domain       = {&#39;x&#39;:x, &#39;y&#39;:y, &#39;z&#39;:z, &#39;t&#39;:t}</span>
+<span class="sd">        data_domain_units = {&#39;x&#39;:&#39;km&#39;, &#39;y&#39;:&#39;km&#39;, &#39;z&#39;:&#39;km&#39;, &#39;t&#39;:&#39;LocalTime&#39;}</span>
+<span class="sd">        dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">figpath</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_fmt</span><span class="o">=</span><span class="s1">&#39;%H&#39;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">EXP</span>              <span class="o">=</span> <span class="n">exp</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">FIGPATH</span>          <span class="o">=</span> <span class="n">figpath</span>
@@ -381,6 +429,107 @@
                       <span class="n">ylim</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>\
                       <span class="n">figname</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>\
                <span class="p">):</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function creates a x-t plot for a 2D data over spatial (x or y) and temporal (t) dimensions. </span>
+
+<span class="sd">        :param data: 2D array (t,x) of data values to be plotted, with dimensions corresponding to the time and </span>
+<span class="sd">                     `x_axis_dim` axes in `DOMAIN`.</span>
+<span class="sd">        :type data: numpy.ndarray</span>
+<span class="sd">        :param levels: Discrete boundaries for color intervals, used for normalizing the color mapping of data values.</span>
+<span class="sd">        :type levels: list or numpy.ndarray</span>
+<span class="sd">        :param extend: Specifies color bar extension behavior at the boundaries; can be one of `&#39;both&#39;`, </span>
+<span class="sd">                       `&#39;min&#39;`, or `&#39;max&#39;`.</span>
+<span class="sd">        :type extend: str</span>
+<span class="sd">        :param x_axis_dim: The spatial dimension to plot on the x-axis, `&#39;x&#39;` or `&#39;y&#39;` (default is `&#39;x&#39;`).</span>
+<span class="sd">        :type x_axis_dim: str, optional</span>
+<span class="sd">        :param cmap_name: The name of the colormap to use (default is `&#39;bwr&#39;` for blue-white-red) same as matplotlib.</span>
+<span class="sd">        :type cmap_name: str, optional</span>
+<span class="sd">        :param title_left: Title text to display on the left side of the plot.</span>
+<span class="sd">        :type title_left: str, optional</span>
+<span class="sd">        :param title_right: Title text to display on the right side of the plot. The `&#39;EXPNAME&#39;` will add in second line.</span>
+<span class="sd">        :type title_right: str, optional</span>
+<span class="sd">        :param xlim: Tuple specifying the minimum and maximum limits for the x-axis. If None, the limits are derived </span>
+<span class="sd">                     from `DOMAIN`.</span>
+<span class="sd">        :type xlim: tuple, optional</span>
+<span class="sd">        :param ylim: Tuple specifying the minimum and maximum limits for the y-axis (time). If None, the limits are derived </span>
+<span class="sd">                     from `DOMAIN`.</span>
+<span class="sd">        :type ylim: tuple, optional</span>
+<span class="sd">        :param figname: Filename to save the plot. If not provided, the plot is not saved.</span>
+<span class="sd">        :type figname: str, optional</span>
+
+<span class="sd">        :return: The generated figure (`fig`), main axis (`ax`), and color bar axis (`cax`) objects.</span>
+<span class="sd">        :rtype: tuple(matplotlib.figure.Figure, matplotlib.axes.Axes, matplotlib.axes.Axes)</span>
+
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Initialize the `dataPlotters` Classes</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from vvmtools.PLOTTools import dataPlotters</span>
+<span class="sd">            import matplotlib.pyplot as plt</span>
+<span class="sd">           </span>
+<span class="sd">            # prepare expname and data coordinate</span>
+<span class="sd">            expname  = &#39;pbl_control&#39;</span>
+<span class="sd">            nx = 128; x = np.arange(nx)*0.2</span>
+<span class="sd">            ny = 128; y = np.arange(ny)*0.2</span>
+<span class="sd">            nz = 50;  z = np.arange(nz)*0.04</span>
+<span class="sd">            nt = 721; t = np.arange(nt)*np.timedelta64(2,&#39;m&#39;)+np.datetime64(&#39;2024-01-01 05:00:00&#39;)</span>
+<span class="sd">           </span>
+<span class="sd">            # create dataPlotter class</span>
+<span class="sd">            figpath           = &#39;./fig/&#39;</span>
+<span class="sd">            data_domain       = {&#39;x&#39;:x, &#39;y&#39;:y, &#39;z&#39;:z, &#39;t&#39;:t}</span>
+<span class="sd">            data_domain_units = {&#39;x&#39;:&#39;km&#39;, &#39;y&#39;:&#39;km&#39;, &#39;z&#39;:&#39;km&#39;, &#39;t&#39;:&#39;LocalTime&#39;}</span>
+<span class="sd">            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)</span>
+
+<span class="sd">        Create the 2d data.</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            np.random.seed(0)</span>
+<span class="sd">            data_xt2d  = np.random.normal(0, 0.1, size=(nt,nx))</span>
+
+<span class="sd">        draw x-t diagram.</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            fig, ax, cax = dplot.draw_xt(data = data_xt2d,</span>
+<span class="sd">                                            levels = np.arange(-1,1.001,0.1),</span>
+<span class="sd">                                            extend = &#39;both&#39;,</span>
+<span class="sd">                                            title_left  = &#39;draw_xt hov example&#39;,</span>
+<span class="sd">                                            title_right = f&#39;right_land_type&#39;,</span>
+<span class="sd">                                            figname     = &#39;test_hov.png&#39;,</span>
+<span class="sd">                                           )</span>
+<span class="sd">            plt.show()</span>
+
+<span class="sd">        .. figure:: _images/dataPlotter_draw_xt.png</span>
+<span class="sd">            :scale: 30%</span>
+<span class="sd">            :class: with-border</span>
+
+<span class="sd">        draw x-t diagram with optional configuration.</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            fig, ax, cax = dplot.draw_xt(data = data_xt2d,</span>
+<span class="sd">                                            levels = np.arange(-1,1.001,0.1), </span>
+<span class="sd">                                            extend = &#39;both&#39;,</span>
+<span class="sd">                                            x_axis_dim  = &#39;y&#39;,</span>
+<span class="sd">                                            cmap_name   = &#39;Spectral&#39;,</span>
+<span class="sd">                                            xlim        = (6.4, 19.2),</span>
+<span class="sd">                                            ylim        = (np.datetime64(&#39;2024-01-01 09:00:00&#39;),</span>
+<span class="sd">                                                           np.datetime64(&#39;2024-01-01 17:00:00&#39;)</span>
+<span class="sd">                                                          ),</span>
+<span class="sd">                                            title_left  = &#39;draw_xt (optional)&#39;,</span>
+<span class="sd">                                            title_right = f&#39;right_land_type&#39;,</span>
+<span class="sd">                                            figname     = &#39;&#39;</span>
+<span class="sd">                                           )</span>
+<span class="sd">            plt.show()</span>
+
+<span class="sd">        .. figure:: _images/dataPlotter_draw_xt_optional.png</span>
+<span class="sd">            :scale: 30%</span>
+<span class="sd">            :class: with-border</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">xlim</span><span class="p">,</span> <span class="n">xticks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_ticks_and_lim</span><span class="p">(</span><span class="n">ax_name</span><span class="o">=</span><span class="n">x_axis_dim</span><span class="p">,</span> <span class="n">ax_lim</span><span class="o">=</span><span class="n">xlim</span><span class="p">)</span>
         <span class="n">ylim</span><span class="p">,</span> <span class="n">yticks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_ticks_and_lim</span><span class="p">(</span><span class="n">ax_name</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">ax_lim</span><span class="o">=</span><span class="n">ylim</span><span class="p">)</span>
 
@@ -421,6 +570,110 @@
                       <span class="n">ylim</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>\
                       <span class="n">figname</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>\
                <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function creates a z-t plot for a specified variable over time and height dimensions. and draw a series pbl height 1-D datasets.</span>
+
+<span class="sd">        :param data: 2D array (nz,nt) of data values to plot, with dimensions corresponding to time (&#39;t&#39;) and height (&#39;z&#39;) axes.</span>
+<span class="sd">        :type data: np.ndarray</span>
+<span class="sd">        :param levels: Sequence of boundaries to use for color normalization.</span>
+<span class="sd">        :type levels: list or np.ndarray</span>
+<span class="sd">        :param extend: Controls the color scaling at the boundaries. Accepts &#39;both&#39;, &#39;neither&#39;, &#39;min&#39;, or &#39;max&#39; to adjust color mapping.</span>
+<span class="sd">        :type extend: str</span>
+<span class="sd">        :param pblh_dicts: Dictionary of planetary boundary layer height data with labels as keys and height values as arrays (nt). Optional.</span>
+<span class="sd">        :type pblh_dicts: dict, optional</span>
+<span class="sd">        :param cmap_name: Name of the colormap for the plot. Defaults to &#39;bwr&#39;.</span>
+<span class="sd">        :type cmap_name: str, optional</span>
+<span class="sd">        :param title_left: Title text displayed at the left of the plot.</span>
+<span class="sd">        :type title_left: str, optional</span>
+<span class="sd">        :param title_right: Title text displayed at the right of the plot.</span>
+<span class="sd">        :type title_right: str, optional</span>
+<span class="sd">        :param xlim: Limits for the x-axis (time), specified as a tuple (start, end). Defaults to None, which uses the full domain range.</span>
+<span class="sd">        :type xlim: tuple, optional</span>
+<span class="sd">        :param ylim: Limits for the y-axis (height), specified as a tuple (start, end). Defaults to None, which uses the full domain range.</span>
+<span class="sd">        :type ylim: tuple, optional</span>
+<span class="sd">        :param figname: File name for saving the generated plot. If left empty, the plot will not be saved.</span>
+<span class="sd">        :type figname: str, optional</span>
+<span class="sd">    </span>
+<span class="sd">        :return: The figure, main axis, and colorbar axis of the created plot.</span>
+<span class="sd">        :rtype: tuple (matplotlib.figure.Figure, matplotlib.axes._axes.Axes, matplotlib.colorbar.Colorbar)</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Initialize the `dataPlotters` Classes</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from vvmtools.PLOTTools import dataPlotters</span>
+<span class="sd">            import matplotlib.pyplot as plt</span>
+<span class="sd">            </span>
+<span class="sd">            # prepare expname and data coordinate</span>
+<span class="sd">            expname  = &#39;pbl_control&#39;</span>
+<span class="sd">            nx = 128; x = np.arange(nx)*0.2</span>
+<span class="sd">            ny = 128; y = np.arange(ny)*0.2</span>
+<span class="sd">            nz = 50;  z = np.arange(nz)*0.04</span>
+<span class="sd">            nt = 721; t = np.arange(nt)*np.timedelta64(2,&#39;m&#39;)+np.datetime64(&#39;2024-01-01 05:00:00&#39;)</span>
+<span class="sd">            </span>
+<span class="sd">            # create dataPlotter class</span>
+<span class="sd">            figpath           = &#39;./fig/&#39;</span>
+<span class="sd">            data_domain       = {&#39;x&#39;:x, &#39;y&#39;:y, &#39;z&#39;:z, &#39;t&#39;:t}</span>
+<span class="sd">            data_domain_units = {&#39;x&#39;:&#39;km&#39;, &#39;y&#39;:&#39;km&#39;, &#39;z&#39;:&#39;km&#39;, &#39;t&#39;:&#39;LocalTime&#39;}</span>
+<span class="sd">            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)</span>
+
+<span class="sd">        Create the 2d data.</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            np.random.seed(0)</span>
+<span class="sd">            data_zt2d  = np.random.normal(0, 0.1, size=(nz,nt))</span>
+<span class="sd">            line1_1d = np.sin( np.linspace(0, 2*np.pi, nt) ) +1</span>
+<span class="sd">            line2_1d = np.cos( np.linspace(0, 2*np.pi, nt) ) +1</span>
+
+<span class="sd">        draw z-t diagram.</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            fig, ax, cax = dplot.draw_zt(data = data_zt2d, </span>
+<span class="sd">                                         levels = np.arange(-1,1.001,0.1), </span>
+<span class="sd">                                         extend = &#39;both&#39;, </span>
+<span class="sd">                                         pblh_dicts={&#39;line1&#39;: line1_1d,</span>
+<span class="sd">                                                     &#39;line2&#39;: line2_1d,</span>
+<span class="sd">                                                    },</span>
+<span class="sd">                                         title_left  = &#39;draw_zt pblh example&#39;, </span>
+<span class="sd">                                         title_right = f&#39;right_land_type&#39;, </span>
+<span class="sd">                                         figname     = &#39;test_pbl.png&#39;,</span>
+<span class="sd">                                  )</span>
+<span class="sd">           </span>
+<span class="sd">            plt.show()</span>
+
+<span class="sd">        .. figure:: _images/dataPlotter_draw_zt.png</span>
+<span class="sd">            :scale: 30%</span>
+<span class="sd">            :class: with-border</span>
+
+<span class="sd">        draw z-t diagram with optional configuration.</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            fig, ax, cax = dplot.draw_zt(data = data_zt2d, </span>
+<span class="sd">                                         levels = np.arange(-1,1.001,0.1), </span>
+<span class="sd">                                         extend = &#39;both&#39;, </span>
+<span class="sd">                                         pblh_dicts={&#39;line1&#39;: line1_1d,</span>
+<span class="sd">                                                     &#39;line2&#39;: line2_1d,</span>
+<span class="sd">                                                    },</span>
+<span class="sd">                                         cmap_name   = &#39;Spectral&#39;,</span>
+<span class="sd">                                         xlim        = (np.datetime64(&#39;2024-01-01 09:00:00&#39;),</span>
+<span class="sd">                                                        np.datetime64(&#39;2024-01-01 17:00:00&#39;)</span>
+<span class="sd">                                                       ),</span>
+<span class="sd">                                         ylim        = (0, 1),</span>
+<span class="sd">                                         title_left  = &#39;draw_zt (optional)&#39;, </span>
+<span class="sd">                                         title_right = f&#39;right_land_type&#39;, </span>
+<span class="sd">                                         figname     = &#39;&#39;,</span>
+<span class="sd">                                  )</span>
+<span class="sd">           </span>
+<span class="sd">            plt.show()</span>
+
+<span class="sd">        .. figure:: _images/dataPlotter_draw_zt_optional.png</span>
+<span class="sd">            :scale: 30%</span>
+<span class="sd">            :class: with-border</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">xlim</span><span class="p">,</span> <span class="n">xticks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_ticks_and_lim</span><span class="p">(</span><span class="n">ax_name</span><span class="o">=</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">ax_lim</span><span class="o">=</span><span class="n">xlim</span><span class="p">)</span>
         <span class="n">ylim</span><span class="p">,</span> <span class="n">yticks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_determine_ticks_and_lim</span><span class="p">(</span><span class="n">ax_name</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">ax_lim</span><span class="o">=</span><span class="n">ylim</span><span class="p">)</span>
 
