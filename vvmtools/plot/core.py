@@ -37,7 +37,7 @@ class DataPlotter:
     ::
 
         import numpy as np
-        from vvmtools.PLOTTools import DataPlotter
+        from vvmtools.plot import DataPlotter
         
         # prepare expname and data coordinate
         expname  = 'pbl_control'
@@ -200,7 +200,7 @@ class DataPlotter:
         ::
 
             import numpy as np
-            from vvmtools.PLOTTools import DataPlotter
+            from vvmtools.plot import DataPlotter
             import matplotlib.pyplot as plt
            
             # prepare expname and data coordinate
@@ -332,7 +332,7 @@ class DataPlotter:
         ::
 
             import numpy as np
-            from vvmtools.PLOTTools import DataPlotter
+            from vvmtools.plot import DataPlotter
             import matplotlib.pyplot as plt
             
             # prepare expname and data coordinate
