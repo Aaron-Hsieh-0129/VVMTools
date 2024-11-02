@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vvmtools.PLOTTools.core &#8212; vvmtools v1.0.0 documentation</title>
+    <title>vvmtools.plot.core &#8212; vvmtools v1.0.0 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/vvmtools/PLOTTools/core';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/vvmtools/plot/core';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -138,16 +138,16 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/vvmtools/vvmtools.html">vvmtools Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/analyzetools.html">AnalyzeTools Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/AnalyzeTools/generated/vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel.html">vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/vvmtools/vvmtools.html">vvmtools module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/analyze/analyze.html">analyze module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.get_var.html">vvmtools.analyze.DataRetriever.get_var</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.get_var_parallel.html">vvmtools.analyze.DataRetriever.get_var_parallel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.func_time_parallel.html">vvmtools.analyze.DataRetriever.func_time_parallel</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/plottools.html">PLOTTools Module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html">vvmtools.PLOTTools.dataPlotters.draw_xt</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_zt.html">vvmtools.PLOTTools.dataPlotters.draw_zt</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/plot/plot.html">plot module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/plot/generated/vvmtools.plot.DataPlotter.draw_xt.html">vvmtools.plot.DataPlotter.draw_xt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/plot/generated/vvmtools.plot.DataPlotter.draw_zt.html">vvmtools.plot.DataPlotter.draw_zt</a></li>
 </ul>
 </details></li>
 </ul>
@@ -261,18 +261,18 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for vvmtools.PLOTTools.core</h1><div class="highlight"><pre>
+  <h1>Source code for vvmtools.plot.core</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
-<div class="viewcode-block" id="dataPlotters">
-<a class="viewcode-back" href="../../../api/vvmtools/PLOTTools/plottools.html#vvmtools.PLOTTools.dataPlotters">[docs]</a>
-<span class="k">class</span> <span class="nc">dataPlotters</span><span class="p">:</span>
+<div class="viewcode-block" id="DataPlotter">
+<a class="viewcode-back" href="../../../api/vvmtools/plot/plot.html#vvmtools.plot.DataPlotter">[docs]</a>
+<span class="k">class</span> <span class="nc">DataPlotter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The dataPlotters class provides methods for creating and saving visualizations of scientific data</span>
+<span class="sd">    The DataPlotter class provides methods for creating and saving visualizations of scientific data</span>
 <span class="sd">    across spatial and temporal dimensions.</span>
 
 <span class="sd">    This class enables users to configure plotting attributes, including axis data, units, and custom tick</span>
@@ -303,7 +303,7 @@
 <span class="sd">    ::</span>
 
 <span class="sd">        import numpy as np</span>
-<span class="sd">        from vvmtools.PLOTTools import dataPlotters</span>
+<span class="sd">        from vvmtools.plot import DataPlotter</span>
 <span class="sd">        </span>
 <span class="sd">        # prepare expname and data coordinate</span>
 <span class="sd">        expname  = &#39;pbl_control&#39;</span>
@@ -316,7 +316,7 @@
 <span class="sd">        figpath           = &#39;./fig/&#39;</span>
 <span class="sd">        data_domain       = {&#39;x&#39;:x, &#39;y&#39;:y, &#39;z&#39;:z, &#39;t&#39;:t}</span>
 <span class="sd">        data_domain_units = {&#39;x&#39;:&#39;km&#39;, &#39;y&#39;:&#39;km&#39;, &#39;z&#39;:&#39;km&#39;, &#39;t&#39;:&#39;LocalTime&#39;}</span>
-<span class="sd">        dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)</span>
+<span class="sd">        dplot = DataPlotter(expname, figpath, data_domain, data_domain_units)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">figpath</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_fmt</span><span class="o">=</span><span class="s1">&#39;%H&#39;</span><span class="p">):</span>
@@ -416,8 +416,8 @@
 
         <span class="k">return</span>  <span class="n">lim</span><span class="p">,</span> <span class="n">ticks</span>
 
-<div class="viewcode-block" id="dataPlotters.draw_xt">
-<a class="viewcode-back" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_xt.html#vvmtools.PLOTTools.dataPlotters.draw_xt">[docs]</a>
+<div class="viewcode-block" id="DataPlotter.draw_xt">
+<a class="viewcode-back" href="../../../api/vvmtools/plot/generated/vvmtools.plot.DataPlotter.draw_xt.html#vvmtools.plot.DataPlotter.draw_xt">[docs]</a>
     <span class="k">def</span> <span class="nf">draw_xt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> \
                       <span class="n">levels</span><span class="p">,</span> \
                       <span class="n">extend</span><span class="p">,</span> \
@@ -464,11 +464,11 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        Initialize the `dataPlotters` Classes</span>
+<span class="sd">        Initialize the `DataPlotter` Classes</span>
 <span class="sd">        ::</span>
 
 <span class="sd">            import numpy as np</span>
-<span class="sd">            from vvmtools.PLOTTools import dataPlotters</span>
+<span class="sd">            from vvmtools.plot import DataPlotter</span>
 <span class="sd">            import matplotlib.pyplot as plt</span>
 <span class="sd">           </span>
 <span class="sd">            # prepare expname and data coordinate</span>
@@ -482,7 +482,7 @@
 <span class="sd">            figpath           = &#39;./fig/&#39;</span>
 <span class="sd">            data_domain       = {&#39;x&#39;:x, &#39;y&#39;:y, &#39;z&#39;:z, &#39;t&#39;:t}</span>
 <span class="sd">            data_domain_units = {&#39;x&#39;:&#39;km&#39;, &#39;y&#39;:&#39;km&#39;, &#39;z&#39;:&#39;km&#39;, &#39;t&#39;:&#39;LocalTime&#39;}</span>
-<span class="sd">            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)</span>
+<span class="sd">            dplot = DataPlotter(expname, figpath, data_domain, data_domain_units)</span>
 
 <span class="sd">        Create the 2d data.</span>
 <span class="sd">        ::</span>
@@ -502,7 +502,7 @@
 <span class="sd">                                           )</span>
 <span class="sd">            plt.show()</span>
 
-<span class="sd">        .. figure:: _images/dataPlotter_draw_xt.png</span>
+<span class="sd">        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_xt.png</span>
 <span class="sd">            :scale: 30%</span>
 <span class="sd">            :class: with-border</span>
 
@@ -524,7 +524,7 @@
 <span class="sd">                                           )</span>
 <span class="sd">            plt.show()</span>
 
-<span class="sd">        .. figure:: _images/dataPlotter_draw_xt_optional.png</span>
+<span class="sd">        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_xt_optional.png</span>
 <span class="sd">            :scale: 30%</span>
 <span class="sd">            :class: with-border</span>
 
@@ -557,8 +557,8 @@
         <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cax</span></div>
 
 
-<div class="viewcode-block" id="dataPlotters.draw_zt">
-<a class="viewcode-back" href="../../../api/vvmtools/PLOTTools/generated/vvmtools.PLOTTools.dataPlotters.draw_zt.html#vvmtools.PLOTTools.dataPlotters.draw_zt">[docs]</a>
+<div class="viewcode-block" id="DataPlotter.draw_zt">
+<a class="viewcode-back" href="../../../api/vvmtools/plot/generated/vvmtools.plot.DataPlotter.draw_zt.html#vvmtools.plot.DataPlotter.draw_zt">[docs]</a>
     <span class="k">def</span> <span class="nf">draw_zt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> \
                       <span class="n">levels</span><span class="p">,</span> \
                       <span class="n">extend</span><span class="p">,</span> \
@@ -599,11 +599,11 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        Initialize the `dataPlotters` Classes</span>
+<span class="sd">        Initialize the `DataPlotter` Classes</span>
 <span class="sd">        ::</span>
 
 <span class="sd">            import numpy as np</span>
-<span class="sd">            from vvmtools.PLOTTools import dataPlotters</span>
+<span class="sd">            from vvmtools.plot import DataPlotter</span>
 <span class="sd">            import matplotlib.pyplot as plt</span>
 <span class="sd">            </span>
 <span class="sd">            # prepare expname and data coordinate</span>
@@ -617,7 +617,7 @@
 <span class="sd">            figpath           = &#39;./fig/&#39;</span>
 <span class="sd">            data_domain       = {&#39;x&#39;:x, &#39;y&#39;:y, &#39;z&#39;:z, &#39;t&#39;:t}</span>
 <span class="sd">            data_domain_units = {&#39;x&#39;:&#39;km&#39;, &#39;y&#39;:&#39;km&#39;, &#39;z&#39;:&#39;km&#39;, &#39;t&#39;:&#39;LocalTime&#39;}</span>
-<span class="sd">            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)</span>
+<span class="sd">            dplot = DataPlotter(expname, figpath, data_domain, data_domain_units)</span>
 
 <span class="sd">        Create the 2d data.</span>
 <span class="sd">        ::</span>
@@ -643,7 +643,7 @@
 <span class="sd">           </span>
 <span class="sd">            plt.show()</span>
 
-<span class="sd">        .. figure:: _images/dataPlotter_draw_zt.png</span>
+<span class="sd">        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_zt.png</span>
 <span class="sd">            :scale: 30%</span>
 <span class="sd">            :class: with-border</span>
 
@@ -668,7 +668,7 @@
 <span class="sd">           </span>
 <span class="sd">            plt.show()</span>
 
-<span class="sd">        .. figure:: _images/dataPlotter_draw_zt_optional.png</span>
+<span class="sd">        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_zt_optional.png</span>
 <span class="sd">            :scale: 30%</span>
 <span class="sd">            :class: with-border</span>
 

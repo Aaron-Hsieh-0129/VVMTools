@@ -1,7 +1,7 @@
-PLOTTools Module
+plot module
 ====================
 
-.. autoclass:: vvmtools.PLOTTools.dataPlotters
+.. autoclass:: vvmtools.plot.DataPlotter
     :exclude-members: draw_xt, draw_zt
 
 Attributes
@@ -26,5 +26,5 @@ Methods
 .. autosummary::
    :toctree: generated
 
-   vvmtools.PLOTTools.dataPlotters.draw_xt
-   vvmtools.PLOTTools.dataPlotters.draw_zt
+   vvmtools.plot.DataPlotter.draw_xt
+   vvmtools.plot.DataPlotter.draw_zt

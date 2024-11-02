@@ -1,7 +1,7 @@
-AnalyzeTools Module
+analyze module
 ====================
 
-.. autoclass:: vvmtools.AnalyzeTools.VVMAnalyzer
+.. autoclass:: vvmtools.analyze.DataRetriever
    :exclude-members: get_var, get_var_parallel, func_time_parallel
 
 
@@ -23,6 +23,6 @@ Methods
 .. autosummary::
    :toctree: generated
 
-   vvmtools.AnalyzeTools.VVMAnalyzer.get_var
-   vvmtools.AnalyzeTools.VVMAnalyzer.get_var_parallel
-   vvmtools.AnalyzeTools.VVMAnalyzer.func_time_parallel
+   vvmtools.analyze.DataRetriever.get_var
+   vvmtools.analyze.DataRetriever.get_var_parallel
+   vvmtools.analyze.DataRetriever.func_time_parallel
