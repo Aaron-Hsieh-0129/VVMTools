@@ -1,5 +1,5 @@
 import numpy as np
-from vvmtools.PLOTTools import dataPlotters
+from vvmtools.plot import DataPlotter
 import matplotlib.pyplot as plt
 
 
@@ -20,7 +20,7 @@ line2_1d = np.cos( np.linspace(0, 2*np.pi, nt) ) +1
 figpath           = './fig/'
 data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
 data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
-dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+dplot = DataPlotter(expname, figpath, data_domain, data_domain_units)
 
 # draw z-t diagram
 # input data dimension is (nz, nt)

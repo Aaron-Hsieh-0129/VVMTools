@@ -1,4 +1,4 @@
-from . import PLOTTools
-from . import AnalyzeTools
+from . import plot
+from . import analyze
 
 __all__ = []
