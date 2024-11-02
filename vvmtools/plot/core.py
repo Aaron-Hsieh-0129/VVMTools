@@ -4,9 +4,9 @@ import matplotlib as mpl
 import os, sys
 import logging
 
-class dataPlotters:
+class DataPlotter:
     """
-    The dataPlotters class provides methods for creating and saving visualizations of scientific data
+    The DataPlotter class provides methods for creating and saving visualizations of scientific data
     across spatial and temporal dimensions.
 
     This class enables users to configure plotting attributes, including axis data, units, and custom tick
@@ -37,7 +37,7 @@ class dataPlotters:
     ::
 
         import numpy as np
-        from vvmtools.PLOTTools import dataPlotters
+        from vvmtools.plot import DataPlotter
         
         # prepare expname and data coordinate
         expname  = 'pbl_control'
@@ -50,7 +50,7 @@ class dataPlotters:
         figpath           = './fig/'
         data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
         data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
-        dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+        dplot = DataPlotter(expname, figpath, data_domain, data_domain_units)
 
     """
     def __init__(self, exp, figpath, domain, units, ticks=None, time_fmt='%H'):
@@ -196,11 +196,11 @@ class dataPlotters:
 
         Examples
         --------
-        Initialize the `dataPlotters` Classes
+        Initialize the `DataPlotter` Classes
         ::
 
             import numpy as np
-            from vvmtools.PLOTTools import dataPlotters
+            from vvmtools.plot import DataPlotter
             import matplotlib.pyplot as plt
            
             # prepare expname and data coordinate
@@ -214,7 +214,7 @@ class dataPlotters:
             figpath           = './fig/'
             data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
             data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
-            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+            dplot = DataPlotter(expname, figpath, data_domain, data_domain_units)
 
         Create the 2d data.
         ::
@@ -234,7 +234,7 @@ class dataPlotters:
                                            )
             plt.show()
 
-        .. figure:: _images/dataPlotter_draw_xt.png
+        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_xt.png
             :scale: 30%
             :class: with-border
 
@@ -256,7 +256,7 @@ class dataPlotters:
                                            )
             plt.show()
 
-        .. figure:: _images/dataPlotter_draw_xt_optional.png
+        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_xt_optional.png
             :scale: 30%
             :class: with-border
 
@@ -328,11 +328,11 @@ class dataPlotters:
 
         Examples
         --------
-        Initialize the `dataPlotters` Classes
+        Initialize the `DataPlotter` Classes
         ::
 
             import numpy as np
-            from vvmtools.PLOTTools import dataPlotters
+            from vvmtools.plot import DataPlotter
             import matplotlib.pyplot as plt
             
             # prepare expname and data coordinate
@@ -346,7 +346,7 @@ class dataPlotters:
             figpath           = './fig/'
             data_domain       = {'x':x, 'y':y, 'z':z, 't':t}
             data_domain_units = {'x':'km', 'y':'km', 'z':'km', 't':'LocalTime'}
-            dplot = dataPlotters(expname, figpath, data_domain, data_domain_units)
+            dplot = DataPlotter(expname, figpath, data_domain, data_domain_units)
 
         Create the 2d data.
         ::
@@ -372,7 +372,7 @@ class dataPlotters:
            
             plt.show()
 
-        .. figure:: _images/dataPlotter_draw_zt.png
+        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_zt.png
             :scale: 30%
             :class: with-border
 
@@ -397,7 +397,7 @@ class dataPlotters:
            
             plt.show()
 
-        .. figure:: _images/dataPlotter_draw_zt_optional.png
+        .. figure:: /api/vvmtools/plot/_images/dataPlotter_draw_zt_optional.png
             :scale: 30%
             :class: with-border
 

@@ -8,7 +8,7 @@ import datetime
 import logging
 from functools import partial
 
-class VVMAnalyzer:
+class DataRetriever:
     """
     A class to handle variable extraction and processing from simulation output files.
 
@@ -294,7 +294,7 @@ class VVMAnalyzer:
         Example:
             >>> import numpy as np
             >>> import vvmtools
-            >>> my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path="path/to/case")
+            >>> my_vvmtool = vvmtools.analyze.DataRetriever(case_path="path/to/case")
             >>> u = my_vvmtool.get_var("u", 0, numpy=True)
             >>> u_mean = my_vvmtool.get_var("u", 0, numpy=True, compute_mean=True)
             >>> u_mean_along_x = my_vvmtool.get_var("u", 0, numpy=True, compute_mean=True, axis=1)
@@ -415,11 +415,11 @@ class VVMAnalyzer:
         Example:
             >>> import numpy as np
             >>> import vvmtools
-            >>> my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path="path/to/case")
+            >>> my_vvmtool = vvmtools.analyze.DataRetriever(case_path="path/to/case")
             >>> domain_range = (None, None, None, None, 64, 128)
             >>> time_steps = np.arange(0, 721, 1)
-            >>> u_tzyx = my_vvmtool.get_var_parallel("u", time_steps=time_steps, domain_range=domain_range, cores=20)
-            >>> u_tz_xymean_subdomain = my_vvmtool.get_var_parallel("u", time_steps=time_steps, domain_range=domain_range, compute_mean=True, axis=(1,2), cores=20)
+            >>> u_tzyx = my_vvmtool.get_var_parallel("u", time_steps=time_steps, domain_range=domain_range)
+            >>> u_tz_xymean_subdomain = my_vvmtool.get_var_parallel("u", time_steps=time_steps, domain_range=domain_range, compute_mean=True, axis=(1,2))
         """
         self._Range_tuple_check(domain_range)
 
@@ -464,17 +464,17 @@ class VVMAnalyzer:
             >>> import numpy as np
             >>> import vvmtools
             >>> def cal_TKE_land(t, func_config):
-            >>>     u = np.squeeze(vvmtool.get_var("u", t, numpy=True, domain_range=func_config["domain_range"]))
-            >>>     v = np.squeeze(vvmtool.get_var("v", t, numpy=True, domain_range=func_config["domain_range"]))
-            >>>     w = np.squeeze(vvmtool.get_var("w", t, numpy=True, domain_range=func_config["domain_range"]))
+            >>>     u = np.squeeze(my_vvmtool.get_var("u", t, numpy=True, domain_range=func_config["domain_range"]))
+            >>>     v = np.squeeze(my_vvmtool.get_var("v", t, numpy=True, domain_range=func_config["domain_range"]))
+            >>>     w = np.squeeze(my_vvmtool.get_var("w", t, numpy=True, domain_range=func_config["domain_range"]))
             >>>     u_inter = (u[:, :, 1:] + u[:, :, :-1])[1:, 1:] / 2
             >>>     v_inter = (v[:, 1:] + v[:, :-1])[1:, :, 1:] / 2
             >>>     w_inter = (w[1:] + w[:-1])[:, 1:, 1:] / 2
             >>>     TKE = np.mean(u_inter ** 2 + v_inter ** 2 + w_inter ** 2, axis=(1, 2))
             >>>     return TKE
-            >>> my_vvmtool = vvmtools.AnalyzeTools.VVMAnalyzer(case_path="path/to/case")
+            >>> my_vvmtool = vvmtools.analyze.DataRetriever(case_path="path/to/case")
             >>> func_config = {"domain_range": (None, None, None, None, 64, 128)}
-            >>> TKE_land = my_vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 721, 1)), func_config=func_config, cores=30)
+            >>> TKE_land = my_vvmtool.func_time_parallel(func=cal_TKE_land, time_steps=list(range(0, 721, 1)), func_config=func_config)
         """
 
         # If time_steps is None, use np.arange(0, 721, 1)

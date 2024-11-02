@@ -1,4 +1,4 @@
-VVMTools
+vvmtools
 ========
 
 Contents

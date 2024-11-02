@@ -1,8 +1,8 @@
-vvmtools Module
-=================
+vvmtools module
+================
 
 .. toctree::
    :maxdepth: 3
 
-   AnalyzeTools/analyzetools
-   PLOTTools/plottools
+   analyze/analyze
+   plot/plot

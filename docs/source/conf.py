@@ -54,3 +54,5 @@ html_theme_options = {
     "use_repository_button": True,
     'collapse_navigation': False,
 }
+
+html_static_path = ['api/vvmtools/plot/_images']
