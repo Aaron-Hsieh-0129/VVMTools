@@ -54,7 +54,7 @@ To initialize the ``VVMTools`` class, provide the path to the directory containi
     import vvmtools
 
     case_path = "/path/to/case/files"
-    mytools = vvmtools.AnalyzeTools.VVMAnalyzer(case_path, debug_mode=True)
+    mytools = vvmtools.analyze.DataRetriever(case_path, debug_mode=True)
 
 Example Operations
 ------------------
@@ -65,7 +65,7 @@ Example Operations
 
    .. code-block:: python
 
-       var_data = mytools.get_var("temperature", time=0, numpy=True)
+       var_data = mytools.get_var("th", time=0, numpy=True)
 
 2. **Parallel Data Extraction**
 
@@ -75,7 +75,7 @@ Example Operations
 
        time_steps = range(0, 10)
        domain_range = (0, 10, None, None, 10, 20) # (k1, k2, j1, j2, i1, i2)
-       var_data_parallel = mytools.get_var_parallel("temperature", time_steps, domain_range=domain_range, cores=4)
+       var_data_parallel = mytools.get_var_parallel("th", time_steps, domain_range=domain_range, cores=4)
 
 3. **Parallelize Function in Time**
 
@@ -100,6 +100,6 @@ Enable debugging by setting ``debug_mode=True`` when initializing ``VVMTools``. 
 .. code-block:: python
 
     import vvmtools
-    vvm_tools = vvmtools.AnalyzeTools.VVMAnalyzer(case_path, debug_mode=True)
+    vvm_tools = vvmtools.analyze.DataRetriever(case_path, debug_mode=True)
 
 This will display warnings, errors, and status information during execution.
