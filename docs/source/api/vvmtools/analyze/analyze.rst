@@ -23,6 +23,7 @@ Methods
 .. autosummary::
    :toctree: generated
 
+   vvmtools.analyze.create_nc_output
    vvmtools.analyze.DataRetriever.get_var
    vvmtools.analyze.DataRetriever.get_var_parallel
    vvmtools.analyze.DataRetriever.func_time_parallel

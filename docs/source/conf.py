@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath('../../vvmtools'))
 project = 'vvmtools'
 copyright = '2024, Aaron Hsieh, Shao-Yu Tseng'
 author = 'Aaron Hsieh, Shao-Yu Tseng'
-release = 'v1.0.0'
+release = 'v1.1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

@@ -496,3 +496,77 @@ class DataRetriever:
         
         # Combine and return the results
         return np.squeeze(np.array(results))
+
+
+
+
+def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attributes=None):
+    """
+    Creates a NetCDF file with multiple 1D and 2D data arrays and user-defined attributes using xarray.
+
+    :param filename: The name of the output NetCDF file.
+    :type filename: str
+    :param dim_data_dict: Dictionary of dimension data, where each key is a dimension name and the value is the data for that dimension.
+    :type dim_data_dict: dict
+    :param data_dict: Dictionary of data arrays, with each key representing a variable name and the value being the data array.
+    :type data_dict: dict
+    :param var_dims_dict: Dictionary specifying the dimensions for each variable. Each key is a variable name, and each value is a tuple of dimension names, e.g., `("dim1",)` or `("dim1", "dim2")`.
+    :type var_dims_dict: dict
+    :param attributes: Optional. A dictionary of attributes for each variable, where each key is a variable name and the value is a dictionary containing metadata such as `units` and `description`.
+    :type attributes: dict, optional
+
+    Example:
+        >>> import numpy as np
+        >>> import vvmtools
+        >>> dim_data_dict = {
+        >>>     "time": np.arange(10),
+        >>>     "height": np.arange(5)
+        >>> }
+        >>> data_dict = {
+        >>>     "t": np.random.rand(10),
+        >>>     "zc": np.random.rand(5),
+        >>>     "th": np.random.rand(10, 5),
+        >>>     "enstrophy": np.random.rand(10, 5),
+        >>>     "tke": np.random.rand(10, 5)
+        >>> }
+        >>> var_dims_dict = {
+        >>>     "t": ("time",),
+        >>>     "zc": ("height",),
+        >>>     "th": ("time", "height"),
+        >>>     "enstrophy": ("time", "height"),
+        >>>     "tke": ("time", "height")
+        >>> }
+        >>> attributes = {
+        >>>     "th": {"units": "K", "description": "x-y mean potential temperature (t,z)"},
+        >>>     "enstrophy": {"units": "1/(s^2)", "description": "x-y mean enstrophy (t,z)"},
+        >>>     "tke": {"units": "(m^2)/(s^2)", "description": "x-y mean turbulent kinetic energy (t,z)"},
+        >>>     "t": {"units": "LST", "description": "Local Time"},
+        >>>     "zc": {"units": "m", "description": "Height in grid center"},
+        >>> }
+        >>> # Example of creating a NetCDF file with flexible dimensions
+        >>> vvmtools.analyze.create_nc_output("sample_xarray.nc", dim_data_dict, data_dict, var_dims_dict, attributes)
+    
+    
+
+    """
+    # Create an xarray Dataset
+    ds = xr.Dataset()
+    
+    # Add dimensions as coordinates using names and data provided in dim_data_dict
+    for dim_name, dim_data in dim_data_dict.items():
+        ds = ds.assign_coords({dim_name: dim_data})
+
+    # Add each data array to the dataset with specified dimensions
+    for var_name, data in data_dict.items():
+        if var_name in var_dims_dict:
+            dims = var_dims_dict[var_name]
+            ds[var_name] = (dims, data)  # Assign data with the specified dimensions
+            # Add attributes if provided
+            if attributes and var_name in attributes:
+                ds[var_name].attrs = attributes[var_name]
+        else:
+            print(f"Warning: Dimensions for variable '{var_name}' not specified in var_dims_dict.")
+    
+    # Save to a NetCDF file
+    ds.to_netcdf(filename)
+    print(f"NetCDF file '{filename}' created successfully.")
