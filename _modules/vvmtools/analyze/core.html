@@ -794,40 +794,51 @@
 <span class="sd">    :param attributes: Optional. A dictionary of attributes for each variable, where each key is a variable name and the value is a dictionary containing metadata such as `units` and `description`.</span>
 <span class="sd">    :type attributes: dict, optional</span>
 
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; import xarray as xr</span>
-<span class="sd">        &gt;&gt;&gt; import vvmtools</span>
-<span class="sd">        &gt;&gt;&gt; nz, nt = 50, 721</span>
-<span class="sd">        &gt;&gt;&gt; dim_data_dict = {</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;time&quot;: (np.arange(nt)*np.timedelta64(2,&#39;m&#39;)+np.datetime64(&#39;2024-01-01 05:00:00&#39;)).astype(&#39;datetime64[s]&#39;),</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;height&quot;: np.arange(nz)*0.04</span>
-<span class="sd">        &gt;&gt;&gt; }</span>
-<span class="sd">        &gt;&gt;&gt; data_dict = {</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;th&quot;: np.random.rand(nt, nz),</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;enstrophy&quot;: np.random.rand(nt, nz),</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;tke&quot;: np.random.rand(nt, nz)</span>
-<span class="sd">        &gt;&gt;&gt; }</span>
-<span class="sd">        &gt;&gt;&gt; var_dims_dict = {</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;th&quot;: (&quot;time&quot;, &quot;height&quot;),</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;enstrophy&quot;: (&quot;time&quot;, &quot;height&quot;),</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;tke&quot;: (&quot;time&quot;, &quot;height&quot;)</span>
-<span class="sd">        &gt;&gt;&gt; }</span>
-<span class="sd">        &gt;&gt;&gt; attributes = {</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;th&quot;: {&quot;units&quot;: &quot;K&quot;, &quot;description&quot;: &quot;x-y mean potential temperature (t,z)&quot;},</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;enstrophy&quot;: {&quot;units&quot;: &quot;1/(s^2)&quot;, &quot;description&quot;: &quot;x-y mean enstrophy (t,z)&quot;},</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;tke&quot;: {&quot;units&quot;: &quot;(m^2)/(s^2)&quot;, &quot;description&quot;: &quot;x-y mean turbulent kinetic energy (t,z)&quot;},</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;time&quot;: {&quot;description&quot;: &quot;Local Time&quot;},  # Removed &#39;units&#39; for time</span>
-<span class="sd">        &gt;&gt;&gt;     &quot;height&quot;: {&quot;units&quot;: &quot;m&quot;, &quot;description&quot;: &quot;Height in grid center&quot;},</span>
-<span class="sd">        &gt;&gt;&gt; }</span>
-<span class="sd">        &gt;&gt;&gt; # Example of creating a NetCDF file with flexible dimensions</span>
-<span class="sd">        &gt;&gt;&gt; vvmtools.analyze.create_nc_output(&quot;sample_xarray.nc&quot;, dim_data_dict, data_dict, var_dims_dict, attributes)</span>
-<span class="sd">        &gt;&gt;&gt; # Extract dimension from xarray</span>
-<span class="sd">        &gt;&gt;&gt; ds = xr.open_dataset(&quot;sample_xarray.nc&quot;)</span>
-<span class="sd">        &gt;&gt;&gt; z = ds.coords[&quot;height&quot;].values</span>
-<span class="sd">        &gt;&gt;&gt; t = ds.coords[&quot;time&quot;].values</span>
-<span class="sd">        &gt;&gt;&gt; # Extract data from xarray</span>
-<span class="sd">        &gt;&gt;&gt; tke = ds[&quot;tke&quot;]</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    save data to NetCDF file using `create_nc_output`.</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        import numpy as np</span>
+<span class="sd">        import vvmtools</span>
+<span class="sd">        nz, nt = 50, 721</span>
+<span class="sd">        dim_data_dict = {</span>
+<span class="sd">            &quot;time&quot;: (np.arange(nt)*np.timedelta64(2,&#39;m&#39;)+np.datetime64(&#39;2024-01-01 05:00:00&#39;)).astype(&#39;datetime64[s]&#39;),</span>
+<span class="sd">            &quot;height&quot;: np.arange(nz)*0.04</span>
+<span class="sd">        }</span>
+<span class="sd">        data_dict = {</span>
+<span class="sd">            &quot;th&quot;: np.random.rand(nt, nz),</span>
+<span class="sd">            &quot;enstrophy&quot;: np.random.rand(nt, nz),</span>
+<span class="sd">            &quot;tke&quot;: np.random.rand(nt, nz)</span>
+<span class="sd">        }</span>
+<span class="sd">        var_dims_dict = {</span>
+<span class="sd">            &quot;th&quot;: (&quot;time&quot;, &quot;height&quot;),</span>
+<span class="sd">            &quot;enstrophy&quot;: (&quot;time&quot;, &quot;height&quot;),</span>
+<span class="sd">            &quot;tke&quot;: (&quot;time&quot;, &quot;height&quot;)</span>
+<span class="sd">        }</span>
+<span class="sd">        attributes = {</span>
+<span class="sd">            &quot;th&quot;: {&quot;units&quot;: &quot;K&quot;, &quot;description&quot;: &quot;x-y mean potential temperature (t,z)&quot;},</span>
+<span class="sd">            &quot;enstrophy&quot;: {&quot;units&quot;: &quot;1/(s^2)&quot;, &quot;description&quot;: &quot;x-y mean enstrophy (t,z)&quot;},</span>
+<span class="sd">            &quot;tke&quot;: {&quot;units&quot;: &quot;(m^2)/(s^2)&quot;, &quot;description&quot;: &quot;x-y mean turbulent kinetic energy (t,z)&quot;},</span>
+<span class="sd">            &quot;time&quot;: {&quot;description&quot;: &quot;Local Time&quot;},  # Removed &#39;units&#39; for time</span>
+<span class="sd">            &quot;height&quot;: {&quot;units&quot;: &quot;m&quot;, &quot;description&quot;: &quot;Height in grid center&quot;},</span>
+<span class="sd">        }</span>
+
+<span class="sd">        # Example of creating a NetCDF file with flexible dimensions</span>
+<span class="sd">        vvmtools.analyze.create_nc_output(&quot;sample_xarray.nc&quot;, dim_data_dict, data_dict, var_dims_dict, attributes)</span>
+
+<span class="sd">    Read NetCDF file from xarray</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        import xarray as xr</span>
+
+<span class="sd">        # Extract dimension</span>
+<span class="sd">        ds = xr.open_dataset(&quot;sample_xarray.nc&quot;)</span>
+<span class="sd">        z = ds.coords[&quot;height&quot;].values</span>
+<span class="sd">        t = ds.coords[&quot;time&quot;].values</span>
+
+<span class="sd">        # Extract data</span>
+<span class="sd">        tke = ds[&quot;tke&quot;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Create an xarray Dataset</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
