@@ -517,22 +517,19 @@ def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attribut
 
     Example:
         >>> import numpy as np
+        >>> import xarray as xr
         >>> import vvmtools
         >>> nz, nt = 50, 721
         >>> dim_data_dict = {
-        >>>     "time": np.arange(nt)*np.timedelta64(1,'h')+np.datetime64('2024-01-01'),
-        >>>     "height": np.arange(nz)
+        >>>     "time": (np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')).astype('datetime64[s]'),
+        >>>     "height": np.arange(nz)*0.04
         >>> }
         >>> data_dict = {
-        >>>     "t": np.random.rand(nt),
-        >>>     "zc": np.random.rand(nz),
         >>>     "th": np.random.rand(nt, nz),
         >>>     "enstrophy": np.random.rand(nt, nz),
         >>>     "tke": np.random.rand(nt, nz)
         >>> }
         >>> var_dims_dict = {
-        >>>     "t": ("time",),
-        >>>     "zc": ("height",),
         >>>     "th": ("time", "height"),
         >>>     "enstrophy": ("time", "height"),
         >>>     "tke": ("time", "height")
@@ -541,11 +538,17 @@ def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attribut
         >>>     "th": {"units": "K", "description": "x-y mean potential temperature (t,z)"},
         >>>     "enstrophy": {"units": "1/(s^2)", "description": "x-y mean enstrophy (t,z)"},
         >>>     "tke": {"units": "(m^2)/(s^2)", "description": "x-y mean turbulent kinetic energy (t,z)"},
-        >>>     "t": {"units": "LST", "description": "Local Time"},
-        >>>     "zc": {"units": "m", "description": "Height in grid center"},
+        >>>     "time": {"description": "Local Time"},  # Removed 'units' for time
+        >>>     "height": {"units": "m", "description": "Height in grid center"},
         >>> }
         >>> # Example of creating a NetCDF file with flexible dimensions
         >>> vvmtools.analyze.create_nc_output("sample_xarray.nc", dim_data_dict, data_dict, var_dims_dict, attributes)
+        >>> # Extract dimension from xarray
+        >>> ds = xr.open_dataset("sample_xarray.nc")
+        >>> z = ds.coords["height"].values
+        >>> t = ds.coords["time"].values
+        >>> # Extract data from xarray
+        >>> tke = ds["tke"]
     """
     # Create an xarray Dataset
     ds = xr.Dataset()
@@ -553,6 +556,8 @@ def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attribut
     # Add dimensions as coordinates using names and data provided in dim_data_dict
     for dim_name, dim_data in dim_data_dict.items():
         ds = ds.assign_coords({dim_name: dim_data})
+        if attributes and dim_name in attributes:
+            ds[dim_name].attrs = attributes[dim_name]
 
     # Add each data array to the dataset with specified dimensions
     for var_name, data in data_dict.items():
