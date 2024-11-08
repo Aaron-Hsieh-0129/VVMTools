@@ -550,6 +550,7 @@ def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attribut
 
     Read NetCDF file from xarray
     ::
+
         import xarray as xr
 
         # Extract dimension
