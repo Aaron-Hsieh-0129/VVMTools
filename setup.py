@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='vvmtools',
-    version='1.0.0',
+    version='1.1.0',
     author='Aaron Hsieh, Shao-Yu Tseng',
     author_email='R12229025@ntu.edu.tw',
     description="This is a package for VVM simulation data loading, analysis, and plotting.",
