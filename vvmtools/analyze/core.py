@@ -518,16 +518,17 @@ def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attribut
     Example:
         >>> import numpy as np
         >>> import vvmtools
+        >>> nz, nt = 50, 721
         >>> dim_data_dict = {
-        >>>     "time": np.arange(10),
-        >>>     "height": np.arange(5)
+        >>>     "time": np.arange(nt)*np.timedelta64(1,'h')+np.datetime64('2024-01-01'),
+        >>>     "height": np.arange(nz)
         >>> }
         >>> data_dict = {
-        >>>     "t": np.random.rand(10),
-        >>>     "zc": np.random.rand(5),
-        >>>     "th": np.random.rand(10, 5),
-        >>>     "enstrophy": np.random.rand(10, 5),
-        >>>     "tke": np.random.rand(10, 5)
+        >>>     "t": np.random.rand(nt),
+        >>>     "zc": np.random.rand(nz),
+        >>>     "th": np.random.rand(nt, nz),
+        >>>     "enstrophy": np.random.rand(nt, nz),
+        >>>     "tke": np.random.rand(nt, nz)
         >>> }
         >>> var_dims_dict = {
         >>>     "t": ("time",),
@@ -545,9 +546,6 @@ def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attribut
         >>> }
         >>> # Example of creating a NetCDF file with flexible dimensions
         >>> vvmtools.analyze.create_nc_output("sample_xarray.nc", dim_data_dict, data_dict, var_dims_dict, attributes)
-    
-    
-
     """
     # Create an xarray Dataset
     ds = xr.Dataset()
