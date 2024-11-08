@@ -67,7 +67,10 @@ class DataPlotter:
         ticks = ticks_in or {'x':None, 'y':None, 'z':None, 't':None}
         dim_ticks = {}
         for key, value in ticks.items():
-            dim_ticks[key] = value or self._get_clear_ticks( ax_name = key )
+            if type(key) == type(None):
+                dim_ticks[key] = self._get_clear_ticks( ax_name = key )
+            else:
+                dim_ticks[key] = value
         return dim_ticks
 
     def _check_create_figpath(self):
