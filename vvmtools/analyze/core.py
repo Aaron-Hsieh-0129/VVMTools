@@ -515,40 +515,50 @@ def create_nc_output(filename, dim_data_dict, data_dict, var_dims_dict, attribut
     :param attributes: Optional. A dictionary of attributes for each variable, where each key is a variable name and the value is a dictionary containing metadata such as `units` and `description`.
     :type attributes: dict, optional
 
-    Example:
-        >>> import numpy as np
-        >>> import xarray as xr
-        >>> import vvmtools
-        >>> nz, nt = 50, 721
-        >>> dim_data_dict = {
-        >>>     "time": (np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')).astype('datetime64[s]'),
-        >>>     "height": np.arange(nz)*0.04
-        >>> }
-        >>> data_dict = {
-        >>>     "th": np.random.rand(nt, nz),
-        >>>     "enstrophy": np.random.rand(nt, nz),
-        >>>     "tke": np.random.rand(nt, nz)
-        >>> }
-        >>> var_dims_dict = {
-        >>>     "th": ("time", "height"),
-        >>>     "enstrophy": ("time", "height"),
-        >>>     "tke": ("time", "height")
-        >>> }
-        >>> attributes = {
-        >>>     "th": {"units": "K", "description": "x-y mean potential temperature (t,z)"},
-        >>>     "enstrophy": {"units": "1/(s^2)", "description": "x-y mean enstrophy (t,z)"},
-        >>>     "tke": {"units": "(m^2)/(s^2)", "description": "x-y mean turbulent kinetic energy (t,z)"},
-        >>>     "time": {"description": "Local Time"},  # Removed 'units' for time
-        >>>     "height": {"units": "m", "description": "Height in grid center"},
-        >>> }
-        >>> # Example of creating a NetCDF file with flexible dimensions
-        >>> vvmtools.analyze.create_nc_output("sample_xarray.nc", dim_data_dict, data_dict, var_dims_dict, attributes)
-        >>> # Extract dimension from xarray
-        >>> ds = xr.open_dataset("sample_xarray.nc")
-        >>> z = ds.coords["height"].values
-        >>> t = ds.coords["time"].values
-        >>> # Extract data from xarray
-        >>> tke = ds["tke"]
+    Examples
+    --------
+    save data to NetCDF file using `create_nc_output`.
+    ::
+
+        import numpy as np
+        import vvmtools
+        nz, nt = 50, 721
+        dim_data_dict = {
+            "time": (np.arange(nt)*np.timedelta64(2,'m')+np.datetime64('2024-01-01 05:00:00')).astype('datetime64[s]'),
+            "height": np.arange(nz)*0.04
+        }
+        data_dict = {
+            "th": np.random.rand(nt, nz),
+            "enstrophy": np.random.rand(nt, nz),
+            "tke": np.random.rand(nt, nz)
+        }
+        var_dims_dict = {
+            "th": ("time", "height"),
+            "enstrophy": ("time", "height"),
+            "tke": ("time", "height")
+        }
+        attributes = {
+            "th": {"units": "K", "description": "x-y mean potential temperature (t,z)"},
+            "enstrophy": {"units": "1/(s^2)", "description": "x-y mean enstrophy (t,z)"},
+            "tke": {"units": "(m^2)/(s^2)", "description": "x-y mean turbulent kinetic energy (t,z)"},
+            "time": {"description": "Local Time"},  # Removed 'units' for time
+            "height": {"units": "m", "description": "Height in grid center"},
+        }
+
+        # Example of creating a NetCDF file with flexible dimensions
+        vvmtools.analyze.create_nc_output("sample_xarray.nc", dim_data_dict, data_dict, var_dims_dict, attributes)
+
+    Read NetCDF file from xarray
+    ::
+        import xarray as xr
+
+        # Extract dimension
+        ds = xr.open_dataset("sample_xarray.nc")
+        z = ds.coords["height"].values
+        t = ds.coords["time"].values
+
+        # Extract data
+        tke = ds["tke"]
     """
     # Create an xarray Dataset
     ds = xr.Dataset()
