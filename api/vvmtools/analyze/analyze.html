@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>analyze module &#8212; vvmtools v1.0.0 documentation</title>
+    <title>analyze module &#8212; vvmtools v1.1.0 documentation</title>
   
   
   
@@ -39,14 +39,14 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../../_static/documentation_options.js?v=8cd78353"></script>
+    <script src="../../../_static/documentation_options.js?v=700db6bf"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/vvmtools/analyze/analyze';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="vvmtools.analyze.DataRetriever.get_var" href="generated/vvmtools.analyze.DataRetriever.get_var.html" />
+    <link rel="next" title="vvmtools.analyze.create_nc_output" href="generated/vvmtools.analyze.create_nc_output.html" />
     <link rel="prev" title="vvmtools module" href="../vvmtools.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -125,7 +125,7 @@
   
   
   
-    <p class="title logo__title">vvmtools v1.0.0 documentation</p>
+    <p class="title logo__title">vvmtools v1.1.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -141,6 +141,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../vvmtools.html">vvmtools module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">analyze module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/vvmtools.analyze.create_nc_output.html">vvmtools.analyze.create_nc_output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.get_var.html">vvmtools.analyze.DataRetriever.get_var</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.get_var_parallel.html">vvmtools.analyze.DataRetriever.get_var_parallel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.func_time_parallel.html">vvmtools.analyze.DataRetriever.func_time_parallel</a></li>
@@ -308,9 +309,11 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.DataRetriever"><code class="docutils literal notranslate"><span class="pre">DataRetriever</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions">Module Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-class">Module Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.DataRetriever"><code class="docutils literal notranslate"><span class="pre">DataRetriever</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -324,6 +327,19 @@
                   
   <section id="analyze-module">
 <h1>analyze module<a class="headerlink" href="#analyze-module" title="Link to this heading">#</a></h1>
+<section id="module-functions">
+<h2>Module Functions<a class="headerlink" href="#module-functions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.analyze.create_nc_output.html#vvmtools.analyze.create_nc_output" title="vvmtools.analyze.create_nc_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.analyze.create_nc_output</span></code></a>(filename, ...)</p></td>
+<td><p>Creates a NetCDF file with multiple 1D and 2D data arrays and user-defined attributes using xarray.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="module-class">
+<h2>Module Class<a class="headerlink" href="#module-class" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="vvmtools.analyze.DataRetriever">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vvmtools.analyze.</span></span><span class="sig-name descname"><span class="pre">DataRetriever</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">case_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/vvmtools/analyze/core.html#DataRetriever"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vvmtools.analyze.DataRetriever" title="Link to this definition">#</a></dt>
@@ -337,38 +353,36 @@
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<section id="attributes">
-<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
+<p><strong>Attributes:</strong></p>
+<blockquote>
+<div><dl class="simple">
+<dt>VARTYPE</dt><dd><p>Dictionary of variable types.</p>
+</dd>
+<dt>DIM</dt><dd><p>Dictionary of spatial dimensions, containing keys such as <cite>xc</cite>, <cite>yc</cite>, <cite>zc</cite> (grid center), and <cite>zz</cite> (grid upper).</p>
+</dd>
+<dt>INIT</dt><dd><p>Dictionary of initial profile data with entries for <cite>RHO</cite>, <cite>THBAR</cite>, <cite>PBAR</cite>, <cite>PIBAR</cite>, and <cite>QVBAR</cite>.</p>
+</dd>
+<dt>time_array_str</dt><dd><p>Array of time values generated from 05:00 to 05:00 the next day at 2-minute intervals (721 elements).</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Methods:</strong></p>
 <div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
-</tbody>
-</table>
-</div>
-<ul class="simple">
-<li><p><strong>VARTYPE</strong>: Dictionary of variable types.</p></li>
-<li><p><strong>DIM</strong>: Dictionary of spatial dimensions. There will be <cite>xc</cite>, <cite>yc</cite> <cite>zc</cite> (grid center), <cite>zz</cite> (grid upper) inside the dictionary</p></li>
-<li><p><strong>INIT</strong>: Dictionary of initial profile data. There will be <cite>RHO</cite>, <cite>THBAR</cite>, <cite>PBAR</cite>, <cite>PIBAR</cite>, and <cite>QVBAR</cite> inside the dictionary</p></li>
-<li><p><strong>time_array_str</strong>: Array of time values. The array is generated from 05:00 to 05:00 the next day at 2-minute intervals. (721 elements)</p></li>
-</ul>
-</section>
-<section id="methods">
-<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.get_var.html#vvmtools.analyze.DataRetriever.get_var" title="vvmtools.analyze.DataRetriever.get_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.analyze.DataRetriever.get_var</span></code></a>(var, time)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.get_var.html#vvmtools.analyze.DataRetriever.get_var" title="vvmtools.analyze.DataRetriever.get_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.analyze.DataRetriever.get_var</span></code></a></p></td>
 <td><p>Get a variable's data at a specified time and domain range.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.get_var_parallel.html#vvmtools.analyze.DataRetriever.get_var_parallel" title="vvmtools.analyze.DataRetriever.get_var_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.analyze.DataRetriever.get_var_parallel</span></code></a>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.get_var_parallel.html#vvmtools.analyze.DataRetriever.get_var_parallel" title="vvmtools.analyze.DataRetriever.get_var_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.analyze.DataRetriever.get_var_parallel</span></code></a></p></td>
 <td><p>Get variable data for multiple time steps in parallel.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.func_time_parallel.html#vvmtools.analyze.DataRetriever.func_time_parallel" title="vvmtools.analyze.DataRetriever.func_time_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.analyze.DataRetriever.func_time_parallel</span></code></a>(func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/vvmtools.analyze.DataRetriever.func_time_parallel.html#vvmtools.analyze.DataRetriever.func_time_parallel" title="vvmtools.analyze.DataRetriever.func_time_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vvmtools.analyze.DataRetriever.func_time_parallel</span></code></a></p></td>
 <td><p>Applies a time-dependent function <cite>func</cite> in parallel over a list of time steps.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
+</dd></dl>
+
 </section>
 </section>
 
@@ -393,11 +407,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="generated/vvmtools.analyze.DataRetriever.get_var.html"
+       href="generated/vvmtools.analyze.create_nc_output.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">vvmtools.analyze.DataRetriever.get_var</p>
+        <p class="prev-next-title">vvmtools.analyze.create_nc_output</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -418,9 +432,11 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.DataRetriever"><code class="docutils literal notranslate"><span class="pre">DataRetriever</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-functions">Module Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-class">Module Class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.DataRetriever"><code class="docutils literal notranslate"><span class="pre">DataRetriever</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

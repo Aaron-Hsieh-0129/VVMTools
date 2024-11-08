@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vvmtools.analyze.core &#8212; vvmtools v1.0.0 documentation</title>
+    <title>vvmtools.analyze.core &#8212; vvmtools v1.1.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../../_static/documentation_options.js?v=8cd78353"></script>
+    <script src="../../../_static/documentation_options.js?v=700db6bf"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -124,7 +124,7 @@
   
   
   
-    <p class="title logo__title">vvmtools v1.0.0 documentation</p>
+    <p class="title logo__title">vvmtools v1.1.0 documentation</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -140,6 +140,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../api/vvmtools/vvmtools.html">vvmtools module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../api/vvmtools/analyze/analyze.html">analyze module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.create_nc_output.html">vvmtools.analyze.create_nc_output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.get_var.html">vvmtools.analyze.DataRetriever.get_var</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.get_var_parallel.html">vvmtools.analyze.DataRetriever.get_var_parallel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.func_time_parallel.html">vvmtools.analyze.DataRetriever.func_time_parallel</a></li>
@@ -771,6 +772,86 @@
         <span class="c1"># Combine and return the results</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">results</span><span class="p">))</span></div>
 </div>
+
+
+
+
+
+<div class="viewcode-block" id="create_nc_output">
+<a class="viewcode-back" href="../../../api/vvmtools/analyze/generated/vvmtools.analyze.create_nc_output.html#vvmtools.analyze.create_nc_output">[docs]</a>
+<span class="k">def</span> <span class="nf">create_nc_output</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dim_data_dict</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">var_dims_dict</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a NetCDF file with multiple 1D and 2D data arrays and user-defined attributes using xarray.</span>
+
+<span class="sd">    :param filename: The name of the output NetCDF file.</span>
+<span class="sd">    :type filename: str</span>
+<span class="sd">    :param dim_data_dict: Dictionary of dimension data, where each key is a dimension name and the value is the data for that dimension.</span>
+<span class="sd">    :type dim_data_dict: dict</span>
+<span class="sd">    :param data_dict: Dictionary of data arrays, with each key representing a variable name and the value being the data array.</span>
+<span class="sd">    :type data_dict: dict</span>
+<span class="sd">    :param var_dims_dict: Dictionary specifying the dimensions for each variable. Each key is a variable name, and each value is a tuple of dimension names, e.g., `(&quot;dim1&quot;,)` or `(&quot;dim1&quot;, &quot;dim2&quot;)`.</span>
+<span class="sd">    :type var_dims_dict: dict</span>
+<span class="sd">    :param attributes: Optional. A dictionary of attributes for each variable, where each key is a variable name and the value is a dictionary containing metadata such as `units` and `description`.</span>
+<span class="sd">    :type attributes: dict, optional</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import xarray as xr</span>
+<span class="sd">        &gt;&gt;&gt; import vvmtools</span>
+<span class="sd">        &gt;&gt;&gt; nz, nt = 50, 721</span>
+<span class="sd">        &gt;&gt;&gt; dim_data_dict = {</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;time&quot;: (np.arange(nt)*np.timedelta64(2,&#39;m&#39;)+np.datetime64(&#39;2024-01-01 05:00:00&#39;)).astype(&#39;datetime64[s]&#39;),</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;height&quot;: np.arange(nz)*0.04</span>
+<span class="sd">        &gt;&gt;&gt; }</span>
+<span class="sd">        &gt;&gt;&gt; data_dict = {</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;th&quot;: np.random.rand(nt, nz),</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;enstrophy&quot;: np.random.rand(nt, nz),</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;tke&quot;: np.random.rand(nt, nz)</span>
+<span class="sd">        &gt;&gt;&gt; }</span>
+<span class="sd">        &gt;&gt;&gt; var_dims_dict = {</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;th&quot;: (&quot;time&quot;, &quot;height&quot;),</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;enstrophy&quot;: (&quot;time&quot;, &quot;height&quot;),</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;tke&quot;: (&quot;time&quot;, &quot;height&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; }</span>
+<span class="sd">        &gt;&gt;&gt; attributes = {</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;th&quot;: {&quot;units&quot;: &quot;K&quot;, &quot;description&quot;: &quot;x-y mean potential temperature (t,z)&quot;},</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;enstrophy&quot;: {&quot;units&quot;: &quot;1/(s^2)&quot;, &quot;description&quot;: &quot;x-y mean enstrophy (t,z)&quot;},</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;tke&quot;: {&quot;units&quot;: &quot;(m^2)/(s^2)&quot;, &quot;description&quot;: &quot;x-y mean turbulent kinetic energy (t,z)&quot;},</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;time&quot;: {&quot;description&quot;: &quot;Local Time&quot;},  # Removed &#39;units&#39; for time</span>
+<span class="sd">        &gt;&gt;&gt;     &quot;height&quot;: {&quot;units&quot;: &quot;m&quot;, &quot;description&quot;: &quot;Height in grid center&quot;},</span>
+<span class="sd">        &gt;&gt;&gt; }</span>
+<span class="sd">        &gt;&gt;&gt; # Example of creating a NetCDF file with flexible dimensions</span>
+<span class="sd">        &gt;&gt;&gt; vvmtools.analyze.create_nc_output(&quot;sample_xarray.nc&quot;, dim_data_dict, data_dict, var_dims_dict, attributes)</span>
+<span class="sd">        &gt;&gt;&gt; # Extract dimension from xarray</span>
+<span class="sd">        &gt;&gt;&gt; ds = xr.open_dataset(&quot;sample_xarray.nc&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; z = ds.coords[&quot;height&quot;].values</span>
+<span class="sd">        &gt;&gt;&gt; t = ds.coords[&quot;time&quot;].values</span>
+<span class="sd">        &gt;&gt;&gt; # Extract data from xarray</span>
+<span class="sd">        &gt;&gt;&gt; tke = ds[&quot;tke&quot;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create an xarray Dataset</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+    
+    <span class="c1"># Add dimensions as coordinates using names and data provided in dim_data_dict</span>
+    <span class="k">for</span> <span class="n">dim_name</span><span class="p">,</span> <span class="n">dim_data</span> <span class="ow">in</span> <span class="n">dim_data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">({</span><span class="n">dim_name</span><span class="p">:</span> <span class="n">dim_data</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">attributes</span> <span class="ow">and</span> <span class="n">dim_name</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">dim_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">[</span><span class="n">dim_name</span><span class="p">]</span>
+
+    <span class="c1"># Add each data array to the dataset with specified dimensions</span>
+    <span class="k">for</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="n">var_dims_dict</span><span class="p">:</span>
+            <span class="n">dims</span> <span class="o">=</span> <span class="n">var_dims_dict</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span>
+            <span class="n">ds</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>  <span class="c1"># Assign data with the specified dimensions</span>
+            <span class="c1"># Add attributes if provided</span>
+            <span class="k">if</span> <span class="n">attributes</span> <span class="ow">and</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+                <span class="n">ds</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Warning: Dimensions for variable &#39;</span><span class="si">{</span><span class="n">var_name</span><span class="si">}</span><span class="s2">&#39; not specified in var_dims_dict.&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Save to a NetCDF file</span>
+    <span class="n">ds</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NetCDF file &#39;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&#39; created successfully.&quot;</span><span class="p">)</span></div>
 
 </pre></div>
 

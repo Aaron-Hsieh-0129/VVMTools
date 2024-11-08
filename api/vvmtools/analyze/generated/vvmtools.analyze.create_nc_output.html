@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>vvmtools.analyze.DataRetriever.func_time_parallel &#8212; vvmtools v1.1.0 documentation</title>
+    <title>vvmtools.analyze.create_nc_output &#8212; vvmtools v1.1.0 documentation</title>
   
   
   
@@ -43,11 +43,11 @@
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.func_time_parallel';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/vvmtools/analyze/generated/vvmtools.analyze.create_nc_output';</script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="plot module" href="../../plot/plot.html" />
-    <link rel="prev" title="vvmtools.analyze.DataRetriever.get_var_parallel" href="vvmtools.analyze.DataRetriever.get_var_parallel.html" />
+    <link rel="next" title="vvmtools.analyze.DataRetriever.get_var" href="vvmtools.analyze.DataRetriever.get_var.html" />
+    <link rel="prev" title="analyze module" href="../analyze.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -141,10 +141,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Home</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../vvmtools.html">vvmtools module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../analyze.html">analyze module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="vvmtools.analyze.create_nc_output.html">vvmtools.analyze.create_nc_output</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">vvmtools.analyze.create_nc_output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vvmtools.analyze.DataRetriever.get_var.html">vvmtools.analyze.DataRetriever.get_var</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vvmtools.analyze.DataRetriever.get_var_parallel.html">vvmtools.analyze.DataRetriever.get_var_parallel</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">vvmtools.analyze.DataRetriever.func_time_parallel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vvmtools.analyze.DataRetriever.func_time_parallel.html">vvmtools.analyze.DataRetriever.func_time_parallel</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../plot/plot.html">plot module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -223,7 +223,7 @@
       
       
       
-      <li><a href="../../../../_sources/api/vvmtools/analyze/generated/vvmtools.analyze.DataRetriever.func_time_parallel.rst" target="_blank"
+      <li><a href="../../../../_sources/api/vvmtools/analyze/generated/vvmtools.analyze.create_nc_output.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +299,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>vvmtools.analyze.DataRetriever.func_time_parallel</h1>
+    <h1>vvmtools.analyze.create_nc_output</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -309,7 +309,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.DataRetriever.func_time_parallel"><code class="docutils literal notranslate"><span class="pre">DataRetriever.func_time_parallel()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.create_nc_output"><code class="docutils literal notranslate"><span class="pre">create_nc_output()</span></code></a></li>
 </ul>
             </nav>
         </div>
@@ -321,48 +321,57 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="vvmtools-analyze-dataretriever-func-time-parallel">
-<h1>vvmtools.analyze.DataRetriever.func_time_parallel<a class="headerlink" href="#vvmtools-analyze-dataretriever-func-time-parallel" title="Link to this heading">#</a></h1>
-<dl class="py method">
-<dt class="sig sig-object py" id="vvmtools.analyze.DataRetriever.func_time_parallel">
-<span class="sig-prename descclassname"><span class="pre">DataRetriever.</span></span><span class="sig-name descname"><span class="pre">func_time_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/vvmtools/analyze/core.html#DataRetriever.func_time_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vvmtools.analyze.DataRetriever.func_time_parallel" title="Link to this definition">#</a></dt>
-<dd><p>Applies a time-dependent function <cite>func</cite> in parallel over a list of time steps.
-The result is returned as a NumPy array.</p>
+  <section id="vvmtools-analyze-create-nc-output">
+<h1>vvmtools.analyze.create_nc_output<a class="headerlink" href="#vvmtools-analyze-create-nc-output" title="Link to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="vvmtools.analyze.create_nc_output">
+<span class="sig-prename descclassname"><span class="pre">vvmtools.analyze.</span></span><span class="sig-name descname"><span class="pre">create_nc_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_data_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_dims_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/vvmtools/analyze/core.html#create_nc_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#vvmtools.analyze.create_nc_output" title="Link to this definition">#</a></dt>
+<dd><p>Creates a NetCDF file with multiple 1D and 2D data arrays and user-defined attributes using xarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>func</strong> (<em>callable</em>) – The time-dependent function to be parallelized. It should accept two arguments:
-the time step <cite>t</cite> and a config object (containing any additional parameters).</p></li>
-<li><p><strong>time_steps</strong> (<em>list</em><em> or </em><em>array-like</em><em>, </em><em>optional</em>) – List or array of time steps over which to apply the function. Defaults to <cite>np.arange(0, 721, 1)</cite>.</p></li>
-<li><p><strong>func_config</strong> (<em>dict</em><em> or </em><em>object</em><em>, </em><em>optional</em>) – A dictionary or object containing additional parameters for the function.</p></li>
-<li><p><strong>cores</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of CPU cores to use for parallel processing, defaults to 20.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – The name of the output NetCDF file.</p></li>
+<li><p><strong>dim_data_dict</strong> (<em>dict</em>) – Dictionary of dimension data, where each key is a dimension name and the value is the data for that dimension.</p></li>
+<li><p><strong>data_dict</strong> (<em>dict</em>) – Dictionary of data arrays, with each key representing a variable name and the value being the data array.</p></li>
+<li><p><strong>var_dims_dict</strong> (<em>dict</em>) – Dictionary specifying the dimensions for each variable. Each key is a variable name, and each value is a tuple of dimension names, e.g., <cite>(“dim1”,)</cite> or <cite>(“dim1”, “dim2”)</cite>.</p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>, </em><em>optional</em>) – Optional. A dictionary of attributes for each variable, where each key is a variable name and the value is a dictionary containing metadata such as <cite>units</cite> and <cite>description</cite>.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The combined result of applying the function to all time steps.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>TypeError</strong> – If <cite>time_steps</cite> is not a list or array-like of integers.</p>
 </dd>
 </dl>
 <dl>
 <dt>Example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">vvmtools</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">cal_TKE_land</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">func_config</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">my_vvmtool</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">func_config</span><span class="p">[</span><span class="s2">&quot;domain_range&quot;</span><span class="p">]))</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">my_vvmtool</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">func_config</span><span class="p">[</span><span class="s2">&quot;domain_range&quot;</span><span class="p">]))</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">my_vvmtool</span><span class="o">.</span><span class="n">get_var</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">domain_range</span><span class="o">=</span><span class="n">func_config</span><span class="p">[</span><span class="s2">&quot;domain_range&quot;</span><span class="p">]))</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">u_inter</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">v_inter</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">w_inter</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">TKE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">u_inter</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">v_inter</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">w_inter</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">TKE</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">my_vvmtool</span> <span class="o">=</span> <span class="n">vvmtools</span><span class="o">.</span><span class="n">analyze</span><span class="o">.</span><span class="n">DataRetriever</span><span class="p">(</span><span class="n">case_path</span><span class="o">=</span><span class="s2">&quot;path/to/case&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">func_config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;domain_range&quot;</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">)}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">TKE_land</span> <span class="o">=</span> <span class="n">my_vvmtool</span><span class="o">.</span><span class="n">func_time_parallel</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">cal_TKE_land</span><span class="p">,</span> <span class="n">time_steps</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">721</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">func_config</span><span class="o">=</span><span class="n">func_config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nz</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">721</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dim_data_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2024-01-01 05:00:00&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nz</span><span class="p">)</span><span class="o">*</span><span class="mf">0.04</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;th&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;enstrophy&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;tke&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nz</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var_dims_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;th&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;enstrophy&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;tke&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;th&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;x-y mean potential temperature (t,z)&quot;</span><span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;enstrophy&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;1/(s^2)&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;x-y mean enstrophy (t,z)&quot;</span><span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;tke&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;(m^2)/(s^2)&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;x-y mean turbulent kinetic energy (t,z)&quot;</span><span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Local Time&quot;</span><span class="p">},</span>  <span class="c1"># Removed &#39;units&#39; for time</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Height in grid center&quot;</span><span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example of creating a NetCDF file with flexible dimensions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vvmtools</span><span class="o">.</span><span class="n">analyze</span><span class="o">.</span><span class="n">create_nc_output</span><span class="p">(</span><span class="s2">&quot;sample_xarray.nc&quot;</span><span class="p">,</span> <span class="n">dim_data_dict</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">var_dims_dict</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extract dimension from xarray</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;sample_xarray.nc&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extract data from xarray</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tke</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;tke&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </dd>
@@ -383,20 +392,20 @@ the time step <cite>t</cite> and a config object (containing any additional para
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="vvmtools.analyze.DataRetriever.get_var_parallel.html"
+       href="../analyze.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">vvmtools.analyze.DataRetriever.get_var_parallel</p>
+        <p class="prev-next-title">analyze module</p>
       </div>
     </a>
     <a class="right-next"
-       href="../../plot/plot.html"
+       href="vvmtools.analyze.DataRetriever.get_var.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">plot module</p>
+        <p class="prev-next-title">vvmtools.analyze.DataRetriever.get_var</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -417,7 +426,7 @@ the time step <cite>t</cite> and a config object (containing any additional para
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.DataRetriever.func_time_parallel"><code class="docutils literal notranslate"><span class="pre">DataRetriever.func_time_parallel()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vvmtools.analyze.create_nc_output"><code class="docutils literal notranslate"><span class="pre">create_nc_output()</span></code></a></li>
 </ul>
   </nav></div>
 
